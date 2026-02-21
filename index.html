@@ -1709,22 +1709,31 @@ function goToAddBlogTab() {
 }
 
 function initBlogs() {
-  const stored = localStorage.getItem('blogs_mk_v3');
-  if (stored) {
-    try {
-      const parsed = JSON.parse(stored);
-      if (parsed && parsed.length > 0) {
-        blogs = parsed;
-        return;
-      }
-    } catch(e) {}
-  }
-  blogs = defaultBlogs;
-  saveBlogs();
+  // Always start with fresh default blogs — never trust localStorage for these
+  blogs = defaultBlogs.map(b => Object.assign({}, b));
+
+  // Apply any admin edits to default blogs
+  try {
+    const overrides = JSON.parse(localStorage.getItem('blogs_mk_overrides') || '{}');
+    Object.entries(overrides).forEach(([id, edits]) => {
+      const idx = blogs.findIndex(b => b.id === parseInt(id));
+      if (idx !== -1) Object.assign(blogs[idx], edits);
+    });
+  } catch(e) {}
+
+  // Append any admin-added extra blogs
+  try {
+    const extra = JSON.parse(localStorage.getItem('blogs_mk_extra') || '[]');
+    if (Array.isArray(extra) && extra.length > 0) {
+      extra.forEach(b => { if (!defaultBlogs.find(d => d.id === b.id)) blogs.push(b); });
+    }
+  } catch(e) {}
 }
 
 function saveBlogs() {
-  localStorage.setItem('blogs_mk_v3', JSON.stringify(blogs));
+  // Only save the admin-added blogs (id > 18) to localStorage
+  const extra = blogs.filter(b => !defaultBlogs.find(d => d.id === b.id));
+  localStorage.setItem('blogs_mk_extra', JSON.stringify(extra));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -2104,7 +2113,8 @@ function publishBlog() {
 
   if (!title || !content) { alert('Title and Content are required.'); return; }
 
-  const newId = blogs.length ? Math.max(...blogs.map(b => b.id)) + 1 : 1;
+  const extraBlogs = blogs.filter(b => !defaultBlogs.find(d => d.id === b.id));
+  const newId = extraBlogs.length ? Math.max(...extraBlogs.map(b => b.id)) + 1 : 100;
   blogs.push({
     id: newId,
     title,
@@ -2133,7 +2143,8 @@ function publishBlogFromCode() {
   try {
     const data = JSON.parse(raw);
     if (!data.title || !data.content) throw new Error('Missing required fields: title, content');
-    const newId = blogs.length ? Math.max(...blogs.map(b => b.id)) + 1 : 1;
+    const extraBlogs = blogs.filter(b => !defaultBlogs.find(d => d.id === b.id));
+    const newId = extraBlogs.length ? Math.max(...extraBlogs.map(b => b.id)) + 1 : 100;
     blogs.push({
       id: newId,
       title: data.title,
@@ -2222,17 +2233,34 @@ function toggleEditForm(id) {
 function saveEdit(id) {
   const idx = blogs.findIndex(b => b.id === id);
   if (idx === -1) return;
-  blogs[idx].title = document.getElementById(`edit-title-${id}`).value.trim() || blogs[idx].title;
+  blogs[idx].title    = document.getElementById(`edit-title-${id}`).value.trim()    || blogs[idx].title;
   blogs[idx].category = document.getElementById(`edit-category-${id}`).value.trim() || blogs[idx].category;
-  blogs[idx].excerpt = document.getElementById(`edit-excerpt-${id}`).value.trim() || blogs[idx].excerpt;
-  blogs[idx].image = document.getElementById(`edit-image-${id}`).value.trim() || blogs[idx].image;
-  blogs[idx].content = document.getElementById(`edit-content-${id}`).value || blogs[idx].content;
-  saveBlogs();
+  blogs[idx].excerpt  = document.getElementById(`edit-excerpt-${id}`).value.trim()  || blogs[idx].excerpt;
+  blogs[idx].image    = document.getElementById(`edit-image-${id}`).value.trim()    || blogs[idx].image;
+  blogs[idx].content  = document.getElementById(`edit-content-${id}`).value         || blogs[idx].content;
+
+  // Persist edits: for default blogs, save to an overrides map
+  const isDefault = defaultBlogs.find(d => d.id === id);
+  if (isDefault) {
+    try {
+      const overrides = JSON.parse(localStorage.getItem('blogs_mk_overrides') || '{}');
+      overrides[id] = { title: blogs[idx].title, category: blogs[idx].category,
+                        excerpt: blogs[idx].excerpt, image: blogs[idx].image, content: blogs[idx].content };
+      localStorage.setItem('blogs_mk_overrides', JSON.stringify(overrides));
+    } catch(e) {}
+  } else {
+    saveBlogs();
+  }
   alert('Blog updated successfully!');
   loadAdminBlogList();
 }
 
 function deleteBlog(id) {
+  const isDefault = defaultBlogs.find(d => d.id === id);
+  if (isDefault) {
+    alert('Default blogs cannot be deleted. You can edit their content using the Edit button.');
+    return;
+  }
   if (confirm('Are you sure you want to permanently delete this blog?')) {
     blogs = blogs.filter(b => b.id !== id);
     saveBlogs();
