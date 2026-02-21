@@ -938,7 +938,7 @@
             <div class="contact-info">
                 <div class="contact-card">
                     <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                    <div><h4 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:0.2rem;">Email</h4><p style="color:var(--secondary);">medrankseo@gmail.com</p></div>
+                    <div><h4 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:0.2rem;">Email</h4><p style="color:var(--secondary);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="761b13120417181d05131936111b171f1a5815191b">[email&#160;protected]</a></p></div>
                 </div>
                 <div class="contact-card">
                     <div class="contact-icon"><i class="fas fa-user"></i></div>
@@ -991,12 +991,20 @@
         </div>
         <div class="admin-grid">
             <div class="admin-sidebar">
-                <p style="font-size:0.7rem;color:var(--secondary);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:1rem;font-weight:600;">Navigation</p>
+                <p style="font-size:0.7rem;color:var(--secondary);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.6rem;font-weight:600;">Blog Management</p>
                 <ul class="admin-menu">
                     <li><a href="#" class="active" onclick="showAdminTab('add-blog',this)"><i class="fas fa-plus-circle" style="margin-right:0.5rem;"></i>Add Blog (Form)</a></li>
                     <li><a href="#" onclick="showAdminTab('add-blog-code',this)"><i class="fas fa-code" style="margin-right:0.5rem;"></i>Add Blog (Code)</a></li>
                     <li><a href="#" onclick="showAdminTab('manage-blogs',this)"><i class="fas fa-list" style="margin-right:0.5rem;"></i>Manage & Edit Blogs</a></li>
                     <li><a href="#" onclick="showAdminTab('analytics',this)"><i class="fas fa-chart-bar" style="margin-right:0.5rem;"></i>Analytics</a></li>
+                </ul>
+                <p style="font-size:0.7rem;color:var(--secondary);text-transform:uppercase;letter-spacing:0.12em;margin:1.2rem 0 0.6rem;font-weight:600;">Site Content</p>
+                <ul class="admin-menu">
+                    <li><a href="#" onclick="showAdminTab('edit-hero',this)"><i class="fas fa-home" style="margin-right:0.5rem;"></i>Edit Hero Section</a></li>
+                    <li><a href="#" onclick="showAdminTab('edit-about',this)"><i class="fas fa-user" style="margin-right:0.5rem;"></i>Edit About Page</a></li>
+                    <li><a href="#" onclick="showAdminTab('edit-contact',this)"><i class="fas fa-envelope" style="margin-right:0.5rem;"></i>Edit Contact Info</a></li>
+                    <li><a href="#" onclick="showAdminTab('edit-footer',this)"><i class="fas fa-shoe-prints" style="margin-right:0.5rem;"></i>Edit Footer</a></li>
+                    <li><a href="#" onclick="showAdminTab('edit-nav',this)"><i class="fas fa-bars" style="margin-right:0.5rem;"></i>Edit Site Identity</a></li>
                 </ul>
             </div>
             <div class="admin-content">
@@ -1057,6 +1065,108 @@
                     </div>
                 </div>
 
+                <!-- TAB: Edit Hero -->
+                <div id="edit-hero-tab" class="hidden">
+                    <h3 style="margin-bottom:0.4rem;color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">Hero Section</span></h3>
+                    <p style="color:var(--secondary);font-size:0.88rem;margin-bottom:1.8rem;">Changes update the homepage hero banner instantly and are saved to your browser.</p>
+                    <div class="form-group"><label>Eyebrow Text <span style="font-weight:400;color:var(--secondary);">(small text above headline)</span></label><input type="text" id="hero-eyebrow" placeholder="Beauty · Skincare · Wellness"></div>
+                    <div class="form-group"><label>Main Headline</label><input type="text" id="hero-headline" placeholder="Discover Your Natural Radiance"></div>
+                    <div class="form-group"><label>Subheading / Description</label><textarea id="hero-subtext" rows="3" placeholder="Expert beauty insights..."></textarea></div>
+                    <div class="form-group"><label>CTA Button Label</label><input type="text" id="hero-cta-label" placeholder="Explore Articles"></div>
+                    <div class="form-group"><label>Featured Articles Label <span style="font-weight:400;color:var(--secondary);">(above blog grid)</span></label><input type="text" id="hero-section-label" placeholder="Editor's Choice"></div>
+                    <div class="form-group"><label>Featured Articles Title</label><input type="text" id="hero-section-title" placeholder="Featured Articles"></div>
+                    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                        <button class="btn btn-success" onclick="saveHero()" style="padding:0.9rem 2rem;border-radius:3rem;"><i class="fas fa-save"></i> Save Hero</button>
+                        <button class="btn btn-primary" onclick="loadHeroFields()" style="padding:0.9rem 2rem;border-radius:3rem;"><i class="fas fa-sync"></i> Reload Current</button>
+                    </div>
+                    <p id="hero-status" style="margin-top:1rem;font-size:0.88rem;color:#27ae60;"></p>
+                </div>
+
+                <!-- TAB: Edit About -->
+                <div id="edit-about-tab" class="hidden">
+                    <h3 style="margin-bottom:0.4rem;color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">About Page</span></h3>
+                    <p style="color:var(--secondary);font-size:0.88rem;margin-bottom:1.8rem;">Update your profile photo, bio, and stat numbers.</p>
+                    <div class="form-group"><label>Section Label <span style="font-weight:400;color:var(--secondary);">(small text above title)</span></label><input type="text" id="about-label" placeholder="Who I Am"></div>
+                    <div class="form-group"><label>Page Title</label><input type="text" id="about-title" placeholder="About Maria Kanwal"></div>
+                    <div class="form-group"><label>Profile Image URL</label><input type="text" id="about-image" placeholder="https://images.unsplash.com/..."></div>
+                    <div class="form-group"><label>Sub-heading <span style="font-weight:400;color:var(--secondary);">(e.g. your role)</span></label><input type="text" id="about-subheading" placeholder="Beauty Expert & Wellness Advocate"></div>
+                    <div class="form-group"><label>Bio Paragraph 1</label><textarea id="about-p1" rows="3" placeholder="Welcome to my beauty sanctuary..."></textarea></div>
+                    <div class="form-group"><label>Bio Paragraph 2</label><textarea id="about-p2" rows="3" placeholder="My philosophy is..."></textarea></div>
+                    <div class="form-group"><label>Bio Paragraph 3</label><textarea id="about-p3" rows="3" placeholder="Through this platform..."></textarea></div>
+                    <p style="font-size:0.8rem;font-weight:600;color:var(--secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.8rem;">Stats</p>
+                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.4rem;">
+                        <div><div class="form-group" style="margin-bottom:0.5rem;"><label>Stat 1 Number</label><input type="text" id="about-stat1-num" placeholder="10+"></div><div class="form-group"><label>Stat 1 Label</label><input type="text" id="about-stat1-lbl" placeholder="Years Experience"></div></div>
+                        <div><div class="form-group" style="margin-bottom:0.5rem;"><label>Stat 2 Number</label><input type="text" id="about-stat2-num" placeholder="500+"></div><div class="form-group"><label>Stat 2 Label</label><input type="text" id="about-stat2-lbl" placeholder="Articles"></div></div>
+                        <div><div class="form-group" style="margin-bottom:0.5rem;"><label>Stat 3 Number</label><input type="text" id="about-stat3-num" placeholder="50k+"></div><div class="form-group"><label>Stat 3 Label</label><input type="text" id="about-stat3-lbl" placeholder="Readers"></div></div>
+                    </div>
+                    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                        <button class="btn btn-success" onclick="saveAbout()" style="padding:0.9rem 2rem;border-radius:3rem;"><i class="fas fa-save"></i> Save About</button>
+                        <button class="btn btn-primary" onclick="loadAboutFields()" style="padding:0.9rem 2rem;border-radius:3rem;"><i class="fas fa-sync"></i> Reload Current</button>
+                    </div>
+                    <p id="about-status" style="margin-top:1rem;font-size:0.88rem;color:#27ae60;"></p>
+                </div>
+
+                <!-- TAB: Edit Contact -->
+                <div id="edit-contact-tab" class="hidden">
+                    <h3 style="margin-bottom:0.4rem;color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">Contact Info</span></h3>
+                    <p style="color:var(--secondary);font-size:0.88rem;margin-bottom:1.8rem;">Update the contact section label, title, email, name, response time, and social links.</p>
+                    <div class="form-group"><label>Section Label</label><input type="text" id="contact-label" placeholder="Let's Connect"></div>
+                    <div class="form-group"><label>Section Title</label><input type="text" id="contact-title" placeholder="Get In Touch"></div>
+                    <div class="form-group"><label>Email Address</label><input type="text" id="contact-email-val" placeholder="medrankseo@gmail.com"></div>
+                    <div class="form-group"><label>Display Name</label><input type="text" id="contact-name-val" placeholder="Maria Kanwal"></div>
+                    <div class="form-group"><label>Response Time</label><input type="text" id="contact-response-val" placeholder="Within 24 hours"></div>
+                    <p style="font-size:0.8rem;font-weight:600;color:var(--secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.8rem;">Social Links (URLs)</p>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.4rem;">
+                        <div class="form-group"><label>Facebook URL</label><input type="text" id="social-facebook" placeholder="https://facebook.com/..."></div>
+                        <div class="form-group"><label>Instagram URL</label><input type="text" id="social-instagram" placeholder="https://instagram.com/..."></div>
+                        <div class="form-group"><label>Twitter / X URL</label><input type="text" id="social-twitter" placeholder="https://twitter.com/..."></div>
+                        <div class="form-group"><label>Pinterest URL</label><input type="text" id="social-pinterest" placeholder="https://pinterest.com/..."></div>
+                    </div>
+                    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                        <button class="btn btn-success" onclick="saveContact()" style="padding:0.9rem 2rem;border-radius:3rem;"><i class="fas fa-save"></i> Save Contact</button>
+                        <button class="btn btn-primary" onclick="loadContactFields()" style="padding:0.9rem 2rem;border-radius:3rem;"><i class="fas fa-sync"></i> Reload Current</button>
+                    </div>
+                    <p id="contact-status" style="margin-top:1rem;font-size:0.88rem;color:#27ae60;"></p>
+                </div>
+
+                <!-- TAB: Edit Footer -->
+                <div id="edit-footer-tab" class="hidden">
+                    <h3 style="margin-bottom:0.4rem;color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">Footer</span></h3>
+                    <p style="color:var(--secondary);font-size:0.88rem;margin-bottom:1.8rem;">Update footer brand text, description, contact details, and copyright line.</p>
+                    <div class="form-group"><label>Footer Brand Name</label><input type="text" id="footer-brand" placeholder="Maria Kanwal Beauty"></div>
+                    <div class="form-group"><label>Footer Description</label><textarea id="footer-desc" rows="3" placeholder="Your trusted source for beauty tips..."></textarea></div>
+                    <div class="form-group"><label>Footer Email</label><input type="text" id="footer-email" placeholder="medrankseo@gmail.com"></div>
+                    <div class="form-group"><label>Footer Name</label><input type="text" id="footer-name" placeholder="Maria Kanwal"></div>
+                    <div class="form-group"><label>Established Year</label><input type="text" id="footer-year" placeholder="Est. 2026"></div>
+                    <div class="form-group"><label>Copyright Line</label><input type="text" id="footer-copyright" placeholder="© 2026 Maria Kanwal Beauty. All rights reserved."></div>
+                    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                        <button class="btn btn-success" onclick="saveFooter()" style="padding:0.9rem 2rem;border-radius:3rem;"><i class="fas fa-save"></i> Save Footer</button>
+                        <button class="btn btn-primary" onclick="loadFooterFields()" style="padding:0.9rem 2rem;border-radius:3rem;"><i class="fas fa-sync"></i> Reload Current</button>
+                    </div>
+                    <p id="footer-status" style="margin-top:1rem;font-size:0.88rem;color:#27ae60;"></p>
+                </div>
+
+                <!-- TAB: Edit Site Identity / Nav -->
+                <div id="edit-nav-tab" class="hidden">
+                    <h3 style="margin-bottom:0.4rem;color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">Site Identity</span></h3>
+                    <p style="color:var(--secondary);font-size:0.88rem;margin-bottom:1.8rem;">Update the site name shown in the navbar, browser tab title, and any site-wide branding.</p>
+                    <div class="form-group"><label>Browser Tab Title</label><input type="text" id="site-tab-title" placeholder="Maria Kanwal Beauty | Professional Beauty & Wellness"></div>
+                    <div class="form-group"><label>Navbar Logo — First Word <span style="font-weight:400;color:var(--secondary);">(plain colour)</span></label><input type="text" id="nav-logo-word1" placeholder="Maria"></div>
+                    <div class="form-group"><label>Navbar Logo — Second Word <span style="font-weight:400;color:var(--secondary);">(accent colour)</span></label><input type="text" id="nav-logo-word2" placeholder="Kanwal"></div>
+                    <p style="font-size:0.8rem;font-weight:600;color:var(--secondary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.8rem;margin-top:0.4rem;">Brand Colour Palette</p>
+                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.4rem;">
+                        <div class="form-group"><label>Primary Colour <span style="font-weight:400;">(buttons, links)</span></label><input type="color" id="color-primary" value="#c8956c" style="height:42px;padding:4px;cursor:pointer;"></div>
+                        <div class="form-group"><label>Gold / Accent Colour</label><input type="color" id="color-gold" value="#b8973a" style="height:42px;padding:4px;cursor:pointer;"></div>
+                        <div class="form-group"><label>Dark / Text Colour</label><input type="color" id="color-dark" value="#2d2118" style="height:42px;padding:4px;cursor:pointer;"></div>
+                    </div>
+                    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                        <button class="btn btn-success" onclick="saveSiteIdentity()" style="padding:0.9rem 2rem;border-radius:3rem;"><i class="fas fa-save"></i> Save Identity</button>
+                        <button class="btn btn-primary" onclick="loadSiteIdentityFields()" style="padding:0.9rem 2rem;border-radius:3rem;"><i class="fas fa-sync"></i> Reload Current</button>
+                        <button class="btn btn-warning" onclick="resetColors()" style="padding:0.9rem 2rem;border-radius:3rem;"><i class="fas fa-undo"></i> Reset Colours</button>
+                    </div>
+                    <p id="nav-status" style="margin-top:1rem;font-size:0.88rem;color:#27ae60;"></p>
+                </div>
+
             </div>
         </div>
     </div>
@@ -1076,7 +1186,7 @@
         </div>
         <div class="footer-section">
             <h3>Contact</h3>
-            <p><i class="fas fa-envelope" style="margin-right:0.5rem;color:var(--primary-light);"></i> medrankseo@gmail.com</p>
+            <p><i class="fas fa-envelope" style="margin-right:0.5rem;color:var(--primary-light);"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0a676f6e786b6461796f654a6d676b636624696567">[email&#160;protected]</a></p>
             <p><i class="fas fa-user" style="margin-right:0.5rem;color:var(--primary-light);"></i> Maria Kanwal</p>
             <p><i class="fas fa-calendar" style="margin-right:0.5rem;color:var(--primary-light);"></i> Est. 2026</p>
             <div class="social-links">
@@ -1091,7 +1201,7 @@
     </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ──────────────────────────────────────────────
 //  BLOG DATA — 18 unique, fully-written articles
 // ──────────────────────────────────────────────
@@ -1212,7 +1322,8 @@ const defaultBlogs = [
   `The most time-consuming step in any morning routine is sunscreen application, and it's also the most important. A broad-spectrum SPF 50+ protects against UVA aging rays, UVB burning rays, and — if you choose a tinted formulation — doubles as a light coverage base, eliminating the need for a separate foundation. This one product swap alone saves five minutes while actually improving the quality of your protection.`,
   ["Vitamin C serum: fights free radicals from pollution and UV — peak effectiveness in AM","Niacinamide: controls oil production before it starts, keeps skin matte through the day","Hyaluronic acid toner: locks in morning hydration before makeup or SPF application","Broad-spectrum SPF 50+: the single highest-value anti-aging and brightening investment"],
   `Time efficiency in skincare comes down to product selection, not product elimination. Multi-tasking formulations — a vitamin C moisturiser, an SPF toner, a serum-foundation — do the work of two to three separate products in one application. The goal is to never sacrifice these four morning essentials: cleanse, vitamin C, moisture, SPF. Everything else can be simplified, combined, or moved to your evening routine where you have more time.`,
-  "Even ten minutes is flexible — on three-minute mornings, micellar water + SPF moisturiser is enough to maintain your skin's baseline health.")
+  "Even ten minutes is flexible — on three-minute mornings, micellar water + SPF moisturiser is enough to maintain your skin's baseline health.",
+  ["The Reality of the Rushed Morning","Your 10-Minute Power Routine","Why Speed Doesn't Mean Sacrifice","Shortcuts That Backfire","How Diet and Hydration Shape Your Skin Before 9am","Quick Morning Skincare Answered","Making 10 Minutes a Non-Negotiable"])
 },
 {
   id: 3,
@@ -1228,7 +1339,8 @@ const defaultBlogs = [
   `Honey is the single most universally beneficial DIY masking ingredient. Its antimicrobial properties (from hydrogen peroxide and bee defensin-1) inhibit acne-causing bacteria; its humectant quality draws moisture into skin; its trace enzymes gently exfoliate dead cells; and its antioxidant phenols protect against oxidative stress. Raw manuka honey, while more expensive, contains additional methylglyoxal (MGO) with clinically validated antibacterial potency.`,
   ["Always patch test new DIY formulations 24 hours before full application","Avoid lemon juice directly on skin — it causes photosensitivity and can burn at full concentration","Do not use egg-based masks if you have an egg allergy","Refrigerate DIY masks without preservatives and use within 48 hours","Apply to clean skin and never leave clay masks on until fully dry — remove while still damp to prevent over-drying","Turmeric stains: use sparingly, rinse thoroughly, and apply on skin you don't mind having a very slight yellow tint temporarily"],
   `The most effective DIY mask routine combines a clay or enzyme treatment twice weekly with a nourishing honey or avocado mask once weekly — a three-mask cycle that addresses cleansing, exfoliation, and deep moisturisation within a single week. This rhythm mirrors professional facial protocols without the salon price tag.`,
-  "Always follow a DIY mask with your regular moisturiser and SPF — even natural treatments can leave skin temporarily more permeable to UV damage.")
+  "Always follow a DIY mask with your regular moisturiser and SPF — even natural treatments can leave skin temporarily more permeable to UV damage.",
+  ["Your Kitchen Is Already a Beauty Lab","Masks by Skin Type: Quick Reference","What Makes Natural Ingredients Work","DIY Pitfalls to Avoid","Inside-Out: Nourishing the Skin You're Masking","DIY Face Mask Questions Answered","From Pantry to Glow"])
 },
 {
   id: 4,
@@ -1244,7 +1356,8 @@ const defaultBlogs = [
   `Retinoids remain the single most clinically validated anti-aging topical class in existence. Tretinoin (prescription retinoic acid) has over 40 years of published clinical evidence demonstrating its ability to increase collagen I production, reverse UV-induced epidermal changes, reduce wrinkle depth, and improve skin tone. Over-the-counter retinol converts to retinoic acid in skin — less directly, with less irritation — making it the accessible starting point. Begin at 0.025–0.05% retinol, two nights per week, gradually increasing frequency over three to four months.`,
   ["SPF every single day — indoors, outdoors, cloudy days — UV penetrates windows and clouds","Start retinoids in your 20s for prevention; they still deliver significant results in your 50s+","Layer vitamin C in the morning and retinol in the evening for complementary action","Never use retinol and strong AHAs on the same night to avoid barrier compromise","Stay hydrated — structural proteins (collagen, elastin) require adequate water to function","Limit refined sugar: glycation irreversibly cross-links collagen fibres, accelerating sagging","Silk pillowcase reduces mechanical friction that deepens sleep lines over years","Facial massage (gua sha, lymphatic drainage) maintains microcirculation and reduces puffiness"],
   `Lifestyle factors account for approximately 50% of visible skin aging — equal in impact to topical skincare. Chronic sleep deprivation elevates cortisol, which breaks down collagen. Smoking reduces cutaneous blood flow and introduces free radicals that deplete antioxidant defenses. Ultraviolet exposure is responsible for up to 90% of visible photoaging in fair-skinned individuals. Addressing these behavioural factors is not supplementary to a skincare routine — it is foundational to it.`,
-  "The most powerful anti-aging strategy costs nothing: wear SPF every day without exception, starting today — the effects compound over years and decades.")
+  "The most powerful anti-aging strategy costs nothing: wear SPF every day without exception, starting today — the effects compound over years and decades.",
+  ["Aging Starts Earlier Than You Think","The Dermatologist-Approved Ingredient List","Decoding the Anti-Aging Evidence","Myths That Age You Faster","The Lifestyle Factors Science Can't Ignore","Anti-Aging Skincare Explained","The Long Game Is the Only Game"])
 },
 {
   id: 5,
@@ -1260,7 +1373,8 @@ const defaultBlogs = [
   `Concealer is the most transformative product in any everyday kit. Applied correctly — in an inverted triangle beneath the eye rather than just under the lash line — it instantly lifts the face, disguises dark circles, and creates the illusion of a face that has had eight hours of sleep. The key is choosing a shade that is one to two shades lighter than your foundation, never peach or orange-toned (these oxidise to an unnatural hue), and blending downward toward the cheekbone with a damp sponge.`,
   ["Match foundation to your neck, not your face — the face is often slightly darker","Use a damp beauty blender for a skin-like finish; dry brushes create a cakey result","Set under-eyes with a translucent banana powder to prevent creasing through the day","Warm-toned blush (terracotta, peach) suits most skin tones better than cool pinks","Never skip brows — they are the structural anchor of the entire face","A clear or tinted lip gloss elevates any look in under 30 seconds","Setting spray is the difference between 3-hour and 12-hour makeup longevity"],
   `The biggest shift in everyday makeup philosophy in the 2020s has been the move from coverage-first to skin-first. Modern formulations — skin tints, serum foundations, cushion compacts — are designed to allow skin texture, pores, and natural undertones to show through, creating a finish that reads as effortless radiance rather than a flawless mask. Embracing this approach not only looks more modern; it's healthier for skin in the long run.`,
-  "Invest in one great foundation brush and one damp sponge — technique and tools matter as much as product quality for a professional-looking result.")
+  "Invest in one great foundation brush and one damp sponge — technique and tools matter as much as product quality for a professional-looking result.",
+  ["Redefining What 'Natural Glam' Actually Means","Your 15-Minute Step-by-Step Breakdown","The Products That Work the Hardest","Makeup Habits Sabotaging Your Look","When Skincare Becomes Your Best Makeup","Everyday Makeup Questions Answered","Ten Minutes of Intention, All-Day Confidence"])
 },
 {
   id: 6,
@@ -1276,7 +1390,8 @@ const defaultBlogs = [
   `The protein-moisture balance is the most misunderstood concept in hair care, and getting it wrong is the most common cause of continued damage. Hair that has too much protein becomes rigid and snaps under tension; hair with too little protein lacks elasticity and stretches until it breaks. A simple test: wet a strand and stretch it. If it stretches easily and springs back, moisture-protein balance is good. If it stretches and doesn't return, you need more protein. If it barely stretches and breaks immediately, you need more moisture.`,
   ["Wash with lukewarm water; rinse conditioner with cold water to seal cuticles","Never brush wet hair — use a wide-tooth comb and detangle from tips upward","Limit heat styling to two to three times weekly maximum","Apply heat protectant to every section, not just a general spray","Trim every 8–12 weeks — split ends travel up the shaft if left","Avoid tight hairstyles that create traction alopecia at the hairline","Scalp massage for 4 minutes daily: clinically shown to increase hair thickness in 6 months"],
   `Scalp health is the foundation of hair health in the most literal sense — every strand grows from a follicle in the scalp. Follicle inflammation, excess sebum, dandruff-causing malassezia overgrowth, and poor circulation all directly impair hair growth and density. A healthy scalp routine (gentle, low-sulphate cleansing, weekly exfoliation with a scalp scrub or salicylic acid treatment, and daily massage) creates the biological conditions for your healthiest hair to grow.`,
-  "The single most impactful hair habit change is sleeping on a satin pillowcase and loose braid — it costs almost nothing and prevents mechanical damage every night for years.")
+  "The single most impactful hair habit change is sleeping on a satin pillowcase and loose braid — it costs almost nothing and prevents mechanical damage every night for years.",
+  ["Why Hair Damage Hides Until It's Serious","Your Complete Hair Repair Toolkit","The Protein-Moisture Balance Explained","Habits Destroying Your Hair Daily","Scalp, Sleep, and Stress: The Hidden Hair Triad","Hair Care Questions Answered","Healthy Hair Is a Practice, Not a Product"])
 },
 {
   id: 7,
@@ -1292,7 +1407,8 @@ const defaultBlogs = [
   `The cuticle is perhaps the most underrated element of nail care. It serves as a waterproof seal between the nail plate and the skin of the finger — without it, bacteria and fungi can enter the nail matrix (where new nail is produced) and cause infections that permanently alter nail growth. Never cut cuticles; instead, soften with cuticle oil nightly and gently push them back after a shower when they're most pliable. This simple habit alone dramatically improves the visual length and health of nails.`,
   ["File in one direction only — sawing back and forth creates micro-tears and weakens edges","Use a glass nail file rather than emery board for the least traumatic filing experience","Wear rubber gloves when washing dishes or using cleaning products — chemicals degrade nails","Apply a base coat before all polish to prevent staining and provide a grippy surface","Use acetone-free remover for frequent removals to prevent over-drying","Nails are not tools: avoid using them to open packaging, scratch surfaces, or peel labels","Hydrate the nail bed and surrounding skin with hand cream 10+ times daily"],
   `Gel and acrylic extensions, used correctly and removed professionally, do not inherently damage nails. What damages them is improper removal — specifically, picking, peeling, or forcible removal of the product, which strips layers of the natural nail plate. If you wear extensions, budget for professional removal every three to four weeks, and take two to three months off per year to allow natural nails to recover and rehydrate fully.`,
-  "The most transformative nail habit is applying cuticle oil nightly before bed — choose an oil with jojoba, vitamin E, and almond oil, and massage it into the base of each nail for 30 seconds per hand.")
+  "The most transformative nail habit is applying cuticle oil nightly before bed — choose an oil with jojoba, vitamin E, and almond oil, and massage it into the base of each nail for 30 seconds per hand.",
+  ["The Biology of a Beautiful Nail","Your Natural Nail Care Arsenal","Why Cuticles Are the Cornerstone","Nail Habits Causing Hidden Damage","Nutrition, Circulation and What Nails Really Need","Nail Care Questions Answered","Strong Nails Are Grown, Not Bought"])
 },
 {
   id: 8,
@@ -1308,7 +1424,8 @@ const defaultBlogs = [
   `Sugar's impact on skin deserves special attention. Advanced glycation end-products (AGEs) — the compounds formed when sugar molecules bond to proteins — cause irreversible cross-linking of collagen and elastin fibres. This makes them rigid, brittle, and unable to perform their structural functions. The result is sagging, dullness, and loss of elasticity that no topical product can reverse. Reducing refined sugar and high-glycaemic carbohydrates is one of the most effective, underrated anti-aging interventions available.`,
   ["Aim for 30+ different plant foods weekly — diversity equals microbiome diversity equals skin barrier health","Drink water consistently through the day rather than in large amounts at once","Limit alcohol: it dehydrates, depletes B vitamins and zinc, and triggers rosacea and inflammation","Eat adequate protein (1.2–1.6g per kg of bodyweight) — collagen synthesis requires amino acid availability","Prioritise sleep as part of your nutritional strategy — HGH secreted during deep sleep repairs skin","Add collagen peptide powder to coffee or smoothies: some studies show improved elasticity after 8+ weeks","Eat the rainbow daily — each colour pigment group provides different skin-protective phytonutrients"],
   `The gut-skin axis is emerging as one of the most significant areas in dermatological research. The gut microbiome influences skin inflammation, sebum production, hydration, and even UV sensitivity through immune signalling pathways. Probiotics (yoghurt, kefir, kimchi, sauerkraut) and prebiotics (garlic, onions, leeks, asparagus) support microbial diversity that translates to calmer, clearer skin. Several clinical studies have shown meaningful improvement in acne severity with probiotic supplementation.`,
-  "A skin nutrition audit is simple: for one week, note what you eat. If colour, variety, and protein are low — address those before adding any new supplement or serum.")
+  "A skin nutrition audit is simple: for one week, note what you eat. If colour, variety, and protein are low — address those before adding any new supplement or serum.",
+  ["Your Diet Is Your Skincare","Nutrients That Build Radiant Skin","The Gut-Skin Axis Unpacked","Foods Quietly Aging Your Skin","Hydration, Hormones, and the Nutrition-Sleep Loop","Skin Nutrition Questions Answered","Feed Your Skin From the Inside Out"])
 },
 {
   id: 9,
@@ -1324,7 +1441,8 @@ const defaultBlogs = [
   `Ceramide-focused products become especially critical in winter. Ceramides are temperature-sensitive — their synthesis decreases in colder conditions, and the skin's ability to retain them is reduced when the skin is repeatedly cold-to-warm cycled (stepping from cold outdoor air into a heated room, then back). Look for moisturisers that list ceramide NP, AP, EOP, NS, and AS — these five ceramide types work synergistically to rebuild the lipid matrix of the skin barrier more effectively than any single ceramide alone.`,
   ["Exfoliate less frequently in winter (reduce from 3× to 1–2×/week) to avoid over-stripping a compromised barrier","Never leave the house without SPF — reflection off snow can make UV exposure more intense than summer","Apply a thick emollient balm (Vaseline, Aquaphor) on severely dry areas before bed for intensive overnight repair","Keep showers warm, not hot — hot water strips skin lipids and leaves your barrier vulnerable","Always apply moisturiser within 60 seconds of getting out of the shower, while skin is still damp","Stay hydrated internally — forced-air heating is as dehydrating as dry outdoor air","Consider a vitamin D3 supplement through winter months — deficiency is directly linked to eczema flares and barrier impairment"],
   `Hands and lips are the first casualties of winter and the most neglected. Hands have very few sebaceous glands and thin skin that loses moisture rapidly in cold air. Lips have no sebaceous glands at all and rely entirely on saliva and topical application for moisture — saliva evaporation actually makes chapping worse. Apply hand cream after every single wash, carry a non-flavoured lip balm with ceramides or shea butter, and reapply every one to two hours.`,
-  "The single most impactful winter skincare addition is a bedroom humidifier — 8 hours in humid air every night compensates for an entire day of moisture loss from heating and cold.")
+  "The single most impactful winter skincare addition is a bedroom humidifier — 8 hours in humid air every night compensates for an entire day of moisture loss from heating and cold.",
+  ["Why Winter Is the Harshest Test for Skin","Your Winter Skincare Upgrade Checklist","The Biology of Cold-Weather Skin Damage","Cold-Weather Care Mistakes to Stop Making","Indoor Environments, Diet, and Vitamin D in Winter","Winter Skincare Questions Answered","Protect Your Barrier, Protect Your Glow"])
 },
 {
   id: 10,
@@ -1340,7 +1458,8 @@ const defaultBlogs = [
   `The blurred lip is perhaps the most wearable trend of 2026. Rather than precise liner and fully saturated colour, the blurred lip involves tapping a bold pigment (burgundy, coral, terracotta) onto the centre of lips with a fingertip, then pressing outward in a diffused oval that creates the impression of naturally flushed lips. It takes 30 seconds, survives snacking, and looks remarkable with minimal other makeup. It's replacing the clean lined lip in every demographic from Gen Z to women in their 50s.`,
   ["Invest in a good skin tint rather than a new foundation — this is where budgets are shifting","Floating liner works best on a clean lid — skip eyeshadow and let the liner be the statement","Glossy lid? Set your concealer thoroughly first so oil from the gloss doesn't cause it to slip","Laminating brows at home with clear mascara + a spoolie achieves 80% of salon results","Monochromatic looks (same shade on eyes, cheeks, lips) are the most effortless trend to execute","A good blurring primer under skin tint is the secret to the poreless, photographic base of 2026","Deep lip colours look most modern when the rest of the face is almost bare"],
   `Sustainability is reshaping makeup buying patterns in 2026. Refillable compacts, clean formulations without synthetic fragrance, and multipurpose products (lip and cheek tints, highlighter-moisturisers, tinted SPF) are the fastest-growing product categories. The era of buying 12 different products is ending; the era of buying three exceptional, multi-tasking products is here. This is better for skin, better for budgets, and better for the planet.`,
-  "The most on-trend thing you can do in 2026 is prioritise your skin — then add one intentional makeup statement that celebrates rather than hides it.")
+  "The most on-trend thing you can do in 2026 is prioritise your skin — then add one intentional makeup statement that celebrates rather than hides it.",
+  ["The Paradox of 2026 Makeup","Trends Worth Trying Right Now","Why Skin-First Became the Movement","Trend Mistakes That Look Dated Instantly","Confidence, Sustainability and the Way Beauty Is Shifting","2026 Makeup Trends Answered","Wear What Makes You Feel Like Yourself"])
 },
 {
   id: 11,
@@ -1356,7 +1475,8 @@ const defaultBlogs = [
   `Epsom salt baths deserve their reputation, though not for the reasons usually cited. Magnesium absorption through skin is limited, but the osmotic effect of a well-salted bath does gently draw out impurities and reduce localised inflammation. More meaningfully, the warmth relaxes the parasympathetic nervous system — actively lowering cortisol — and the temperature cycling (warm bath followed by cool rinse) improves circulation and gives skin a noticeable, immediate luminosity. Add a few drops of lavender essential oil (genuinely shown to reduce anxiety scores in clinical settings) and the bath becomes therapeutic, not just pleasant.`,
   ["Prepare your environment first: dim lighting, playlist, towels warming, products laid out","Drink 500ml of water before your bath and keep a glass nearby — heat dehydrates","Apply hair mask before your bath and use the steam to enhance penetration","Use a dry body brush before bathing (always toward the heart) to maximise exfoliation and lymphatic flow","Never apply a clay face mask and then soak in a hot bath — the heat will dry the clay too quickly","After your bath, moisturise within 90 seconds while skin is still damp — absorption is highest","End with 20 minutes of complete rest: eye pads, still, in silence or with gentle sound"],
   `The psychological dimension of a home spa day is as significant as the physical. Chronic stress is one of the most damaging forces on skin — cortisol degrades collagen, triggers sebum overproduction, impairs barrier function, and slows healing. Dedicating six uninterrupted hours to intentional self-restoration actively lowers cortisol levels, and this hormonal shift has direct, measurable benefits on skin that persist for several days. This is why professional aestheticians and spa therapists consistently see better skin results in clients who prioritise stress management alongside topical treatments.`,
-  "Schedule your Self-Care Sunday on your calendar like a meeting — the barrier to starting is always the planning; once you begin, the momentum carries you through.")
+  "Schedule your Self-Care Sunday on your calendar like a meeting — the barrier to starting is always the planning; once you begin, the momentum carries you through.",
+  ["Why a Real Spa Protocol Is Different","Your Six-Hour Home Spa Schedule","The Cortisol Connection: Why Rest Heals","Spa Day Mistakes That Reduce Results","Mindfulness, Nutrition and the Rest You're Missing","Home Spa Day Questions Answered","You Deserve to Restore, Not Just Relax"])
 },
 {
   id: 12,
@@ -1372,7 +1492,8 @@ const defaultBlogs = [
   `Filling technique is the most crucial skill in brow makeup. The most common mistake is drawing colour directly onto bare skin rather than through the existing hairs — this creates a block of colour that reads as obviously artificial. The correct technique is to use light, hair-like strokes with a fine-tipped brow pencil or thin flat brush with pomade, always following the direction of natural hair growth. Fill sparse areas first, then blend with a spoolie, then refine edges last. Finish with a clear or tinted gel to set the shape.`,
   ["Choose brow product one shade lighter than your natural colour for the most natural result","Ash-toned shades prevent warm hair colours from turning reddish-orange on brows","Microblading lasts 12–18 months but requires a skilled technician — always review portfolios","Brow lamination (7–8 weeks) is the gentlest semi-permanent option for fuller-looking brows","Castor oil applied nightly genuinely stimulates follicular activity in sparse brows after 8–12 weeks","Soap brows: wet a spoolie, drag through a clear soap bar, brush upward — lasts all day","Never wax at home — professional wax removes precise amounts; DIY wax removes too much"],
   `For women who have experienced over-tweezing in the 1990s–2000s (a shared generational trauma), the regrowth journey requires commitment. Start by putting down all tools for three to four months — every natural hair that grows during this period is data for your brow artist. Then consult a brow specialist who can assess follicle viability and map your ideal shape before any new hairs are removed. Castor oil nightly, topical minoxidil (increasingly used off-label for brow regrowth), and biotin internally can all support the process.`,
-  "Define your three key brow points with a pencil before touching any tweezers — map before you shape, always.")
+  "Define your three key brow points with a pencil before touching any tweezers — map before you shape, always.",
+  ["Why Brows Change Everything","Your Brow Mapping and Filling Reference","The Architecture of the Perfect Brow","Brow Blunders That Age the Face","Regrowth, Hormones and Long-Term Brow Health","Eyebrow Questions Answered","Map It, Fill It, Own It"])
 },
 {
   id: 13,
@@ -1388,7 +1509,8 @@ const defaultBlogs = [
   `The single most damaging acne behaviour is picking and squeezing. Every time a lesion is manually expressed, three things happen: the follicle wall ruptures, spreading bacteria and inflammatory material laterally into surrounding tissue; the dermis is traumatised, triggering wound healing that can produce scarring; and the pigment-producing cells in the area are stimulated, creating the post-inflammatory hyperpigmentation that often persists far longer than the original spot. One spot unpicked heals in seven days. One spot picked heals in three to six weeks and may leave a mark lasting months.`,
   ["Never use harsh physical scrubs on acne — they spread bacteria and worsen inflammation","Avoid over-cleansing (more than twice daily) — this triggers compensatory sebum overproduction","Change your pillowcase two to three times weekly — C.acnes thrives in fabric fibres","Use non-comedogenic, fragrance-free formulations on all leave-on products","Low-glycaemic diet reduces acne severity in multiple clinical trials — limit refined sugar and white carbs","Dairy (particularly skim milk) is linked to increased acne in multiple studies — consider reducing","Consult a dermatologist if breakouts are cystic, nodular, or significantly impacting mental health — prescription options are highly effective"],
   `The gut-skin axis plays a well-documented role in acne. Gut dysbiosis — imbalance in the intestinal microbiome — triggers systemic inflammation that manifests in the skin. Probiotic supplementation (Lactobacillus and Bifidobacterium strains) has been shown in multiple studies to reduce inflammatory acne lesion counts by 30–50% over 12 weeks. Fermented foods, prebiotic fibre, and a diverse whole-food diet support the microbial diversity that keeps skin inflammation in check.`,
-  "Post-inflammatory hyperpigmentation often outlasts the breakout itself — incorporate azelaic acid or vitamin C into your routine to fade marks while preventing new ones.")
+  "Post-inflammatory hyperpigmentation often outlasts the breakout itself — incorporate azelaic acid or vitamin C into your routine to fade marks while preventing new ones.",
+  ["Acne Is Inflammation, Not Dirt","Your Evidence-Based Acne Treatment Toolkit","The Four Pathways Driving Breakouts","Acne Habits Making Things Worse","Diet, Stress and the Gut-Skin Cycle in Acne","Acne Solutions Answered","Calm Skin Takes Strategy, Not Punishment"])
 },
 {
   id: 14,
@@ -1404,7 +1526,8 @@ const defaultBlogs = [
   `Your skin chemistry is the invisible co-author of every fragrance you wear. Skin pH, moisture levels, natural body temperature, and even diet affect how a fragrance develops on your skin versus on a test strip. This is why a fragrance can smell extraordinary on one person and flat or sharp on another — the molecule interactions with your skin's surface compounds are genuinely unique. This is also why you should always test fragrance on your skin (wrist or inner elbow), wait 30 minutes for the top notes to settle, then evaluate the heart before making a purchase decision.`,
   ["Never rub your wrists together after spraying — this breaks fragrance molecules and shortens longevity","Apply to pulse points: inner wrists, neck, behind ears, inner elbows, behind knees","Moisturised skin holds fragrance 30–50% longer than dry skin — apply unscented lotion first","Layer compatible fragrances (same house, complementary notes) for a unique personal scent","Store perfumes away from light, heat, and humidity — a drawer or closet is ideal, not a bathroom shelf","Test maximum three fragrances per session — olfactory fatigue prevents accurate assessment beyond this","Coffee beans between samples reset olfactory receptors — but smelling your own skin works equally well"],
   `Niche and artisan perfumery has exploded in recent years, offering complex, interesting, and often more skin-compatible alternatives to designer fragrances that are mass-formulated for the broadest possible appeal. Brands like Le Labo, Maison Margiela, Diptyque, and local artisan perfumers offer more distinctive compositions with higher-quality raw materials. Many offer sample sets — an excellent investment before committing to a full bottle. The fragrance community on fragrance review platforms has democratised access to this world significantly.`,
-  "The signature scent you're looking for is the one you stop noticing after 30 minutes because it has become part of you — that's the smell of right.")
+  "The signature scent you're looking for is the one you stop noticing after 30 minutes because it has become part of you — that's the smell of right.",
+  ["The Most Underestimated Sense in Beauty","The Language of Fragrance at a Glance","How Skin Chemistry Rewrites Every Scent","Fragrance Mistakes That Waste Money","Mood, Memory and the Emotional Life of Scent","Fragrance and Perfumery Answered","Your Signature Scent Is Waiting to Be Found"])
 },
 {
   id: 15,
@@ -1420,7 +1543,8 @@ const defaultBlogs = [
   `Keratosis pilaris — those small, rough bumps on the backs of upper arms, thighs, or cheeks — affects approximately 40% of adults and is one of the most enquired-about body skin concerns. It results from keratin buildup blocking hair follicles. The most effective treatment protocol combines chemical exfoliation (AHA or urea) with consistent barrier moisturisation and sun protection. Use an AHA body lotion (lactic acid or glycolic acid 5–10%) every evening, and a rich shea or ceramide moisturiser in the morning. Results are visible within six to eight weeks of consistent application.`,
   ["Apply body moisturiser to slightly damp skin — the water molecules amplify ingredient penetration","Your neck and décolletage respond to the same ingredients as your face — extend your facial serum downward","Hands need SPF every morning — they're constantly exposed and lack the natural moisture retention of other areas","Body acne (bacne) responds well to benzoyl peroxide washes and salicylic acid — exactly like facial acne","Dry elbows: apply thick urea cream or shea butter nightly and cover with a thin cotton sock cut at the toe for occlusion","Stretch marks: retinol body creams improve texture and tone over time — they cannot be eliminated but can be significantly reduced","Sleep in cotton or moisture-wicking fabrics to reduce sweating that disrupts the skin barrier overnight"],
   `The décolletage is the single most age-revealing area after the face — and the most neglected. The skin here is thin, has fewer sebaceous glands than the face, and is almost constantly exposed to UV radiation. Sun damage here accumulates into visible pigmentation, crepiness, and loss of elasticity that can make the décolletage appear decades older than the face above it. The fix is straightforward: apply SPF every morning to the entire exposed décolletage, and extend your evening neck cream down to the sternum daily.`,
-  "The habit that transforms body skin most rapidly is applying your moisturiser within 60 seconds of stepping out of the shower — this simple timing change dramatically increases how much moisture is locked in.")
+  "The habit that transforms body skin most rapidly is applying your moisturiser within 60 seconds of stepping out of the shower — this simple timing change dramatically increases how much moisture is locked in.",
+  ["The Body Skincare Gap","Your Body Care Routine by Area","Why Regional Skin Differences Matter","Body Care Neglect and Its Visible Costs","Exercise, Sleep and Their Effect on Body Skin","Body Skincare Questions Answered","Head to Toe, You Deserve the Same Care"])
 },
 {
   id: 16,
@@ -1436,7 +1560,8 @@ const defaultBlogs = [
   `The multi-use cream blush is the capsule collection's secret weapon. A terracotta, peach, or dusty rose cream blush applied to cheeks with fingertips, blended onto lids as a warm wash, and pressed onto the lips for a matching stain creates an entire coordinated, monochromatic look with one product. This monochromatic approach — the same family of colour on eyes, cheeks, and lips — consistently reads as intentional and sophisticated without looking overdone. It requires zero colour theory knowledge to execute beautifully.`,
   ["Choose every product based on its ingredients as much as its colour — your makeup sits on your skin for 12+ hours","Stick format products are the most travel-friendly and hygienic multi-taskers","When auditing your current collection: if you haven't reached for it in 60 days, you don't need it","Quality over quantity — one $30 product that works flawlessly is better than five $5 products that don't","Decant favourites into small travel pots to unify your kit and reduce what you carry daily","Review and refresh your capsule collection seasonally — swap summer bronzer for winter deep lip colour","The capsule approach works best when your skincare is doing its job — less base makeup needed when skin is glowing"],
   `The financial and environmental case for capsule makeup is compelling. The average woman spends between $150–400 annually on makeup products — many of which expire unused. A capsule collection of seven items, refreshed once or twice annually, costs between $80–200 and eliminates waste almost entirely. Each product is used to completion, stored correctly, and replaced when genuinely finished rather than when a new campaign creates want where there was no need.`,
-  "Build your capsule collection starting from the outside in: SPF first, brows second — every other product is optional once those two are excellent.")
+  "Build your capsule collection starting from the outside in: SPF first, brows second — every other product is optional once those two are excellent.",
+  ["The Problem with a Bloated Makeup Bag","Your 7-Piece Capsule Collection","The Power of the Multi-Use Product","Minimalism Mistakes That Compromise Results","Sustainability, Spending and the Slow Beauty Shift","Capsule Beauty Questions Answered","Less Truly Is More — If You Choose Wisely"])
 },
 {
   id: 17,
@@ -1452,7 +1577,8 @@ const defaultBlogs = [
   `Sleep deprivation's effects on skin have been studied objectively, and the results are striking. A study by Estée Lauder Clinical Research found that after just two nights of shortened sleep (five hours versus eight hours), subjects showed 45% more facial lines and wrinkles, 40% reduction in skin elasticity, and 13% reduced barrier function compared to their well-rested baseline. These changes occurred in 48 hours. The reversal — through adequate sleep — occurred in the same timeframe. No topical product works this fast or this comprehensively.`,
   ["Establish a consistent sleep-wake time, including weekends — circadian rhythm consistency is the foundation","Avoid screens one hour before bed — blue light suppresses melatonin secretion by up to 85%","Keep your bedroom at 17–19°C — the optimal temperature for deep sleep initiation","Magnesium glycinate 200–400mg before bed: shown to improve sleep quality and extend deep sleep stages","Sleeping on your back prevents compression lines and reduces puffiness — use a curved pillow for support","Apply your most intensive PM skincare before bed: retinol, sleeping mask, ceramide cream","A silk or satin pillowcase reduces mechanical friction on both skin and hair overnight"],
   `The synergy between sleep and your PM skincare routine is one of the most underutilised advantages in beauty. Retinoids are more effective applied at night because they're not deactivated by daylight; the occlusive environment of sleep enhances penetration of sleeping masks and oils; and reduced muscle movement during sleep allows active ingredients to sit undisturbed in contact with skin for six to eight hours. Think of your PM routine not as evening care, but as the beginning of what sleep is about to amplify.`,
-  "If you could only add one beauty habit this year, make it consistent, high-quality sleep — it is the only thing that simultaneously does everything no product can.")
+  "If you could only add one beauty habit this year, make it consistent, high-quality sleep — it is the only thing that simultaneously does everything no product can.",
+  ["Beauty Sleep Is Literally Real","What Happens to Skin During Each Sleep Stage","The Science of Nocturnal Skin Repair","Sleep Saboteurs Ageing You Overnight","Circadian Rhythm, Nutrition and Evening Wind-Down","Sleep and Skin Questions Answered","Invest in Sleep Like You Invest in Skincare"])
 },
 {
   id: 18,
@@ -1468,16 +1594,26 @@ const defaultBlogs = [
   `The ingredient sourcing dimension of sustainable beauty is equally important and more complex. Palms oil derivatives appear in approximately 70% of personal care products under hundreds of different ingredient names (sodium lauryl sulphate, glycerin, stearic acid, cetyl alcohol). While not all palm oil is unethically sourced, the RSPO (Roundtable on Sustainable Palm Oil) certification provides a meaningful standard to look for. Similarly, certain synthetic musks, silicones, and UV filters are classified as aquatic toxins — biodegradable alternatives now exist and are increasingly used by progressive formulators.`,
   ["Check packaging for the chasing arrows symbol — but note that only glass and aluminium are truly infinitely recyclable","Clean beauty ≠ sustainable beauty: 'clean' refers to human safety; sustainability refers to environmental impact","Buy full sizes when you know a product works — samples and travel sizes generate disproportionate packaging waste","Look for 'waterless' formulations that use less water (a limited resource) and require fewer preservatives","Support brands with transparent ingredient sourcing — companies that can't tell you where ingredients come from often haven't asked","Extend product life by storing correctly — heat, light, and air degrade products faster, leading to premature disposal","Slow beauty: buying less, using fully, choosing thoughtfully — the most sustainable approach of all"],
   `The clean beauty movement — products formulated without certain synthetic chemicals — has significant overlap with sustainable beauty but is not identical. Many synthetic ingredients are environmentally benign, while some 'natural' ingredients (certain essential oils, fragrances, plant extracts) are genuine skin irritants or environmental allergens. The most sophisticated approach to sustainable beauty evaluates both the human safety and environmental profile of ingredients, rather than using 'natural' as a proxy for safe or 'synthetic' as a proxy for harmful.`,
-  "The most powerful sustainable beauty habit is simply using every product you own to the last drop before buying its replacement — this one shift reduces beauty waste and spending by 30–50%.")
+  "The most powerful sustainable beauty habit is simply using every product you own to the last drop before buying its replacement — this one shift reduces beauty waste and spending by 30–50%.",
+  ["Beauty's Inconvenient Environmental Truth","Sustainable Swaps That Actually Perform","What Makes Beauty Truly Sustainable","Greenwashing Traps to Watch For","Slow Beauty: How Less Consumption Changes Everything","Sustainable Beauty Questions Answered","Small Choices, Lasting Impact"])
 }
 ];
 
 // ──────────────────────────────────────────────────────────
 //  HELPER: generate structured full content for blogs 2–18
 // ──────────────────────────────────────────────────────────
-function generateLongContent(title, category, date, image, intro1, intro2, bullets, bodyPara1, keyTakeaways, bodyPara2, conclusion) {
+function generateLongContent(title, category, date, image, intro1, intro2, bullets, bodyPara1, keyTakeaways, bodyPara2, conclusion, heads) {
   const bulletList = bullets.map(b => `<li>${b}</li>`).join('');
   const takeawayList = keyTakeaways.map(t => `<li>${t}</li>`).join('');
+  // heads = [h2_intro, h3_infographic, h2_science, h2_mistakes, h2_lifestyle, h2_faq, h2_closing]
+  const h = heads || {};
+  const hIntro      = h[0] || "Why This Matters in 2026";
+  const hInfoLabel  = h[1] || "At a Glance: Essential Points";
+  const hScience    = h[2] || "The Science and Strategy";
+  const hMistakes   = h[3] || "Common Mistakes That Undermine Results";
+  const hLifestyle  = h[4] || "Integrating Lifestyle for Maximum Results";
+  const hFaq        = h[5] || "Frequently Asked Questions";
+  const hClose      = h[6] || "Final Thoughts";
   return `
     <a class="back-button" onclick="goBackToBlogs()"><i class="fas fa-arrow-left"></i> Back to Blogs</a>
     <div class="blog-header">
@@ -1490,23 +1626,23 @@ function generateLongContent(title, category, date, image, intro1, intro2, bulle
     </div>
     <img src="${image}" alt="${title}" class="blog-featured-image">
     <div class="blog-section">
-      <h2>Why This Matters in 2026</h2>
+      <h2>${hIntro}</h2>
       <p>${intro1}</p>
       <p>${intro2}</p>
       <p>In this guide, every recommendation is grounded in current cosmetic science or evidence-based dermatological practice. I've distilled years of professional experience and ongoing research into a practical, actionable framework you can begin implementing today — regardless of your budget, skin type, or experience level.</p>
     </div>
     <div class="infographic">
-      <h3><i class="fas fa-lightbulb"></i> At a Glance: Essential Points</h3>
+      <h3><i class="fas fa-lightbulb"></i> ${hInfoLabel}</h3>
       <ul>${bulletList}</ul>
     </div>
     <div class="blog-section">
-      <h2>The Science and Strategy</h2>
+      <h2>${hScience}</h2>
       <p>${bodyPara1}</p>
       <p>The most important principle underlying all effective beauty practices is consistency over intensity. A simple routine performed daily outperforms an elaborate regime practiced sporadically. This is because skin functions on biological cycles — cell turnover (28–40 days), collagen remodelling (3–6 months), barrier recovery (2–4 weeks) — and only consistent inputs produce cumulative, visible results.</p>
       <p>Equally important is the concept of skin individuality. No two skins are biologically identical. The same formulation, the same active, the same protocol will produce different results on different people based on genetics, microbiome composition, lifestyle, and environmental exposure. Use this guide as a framework, then adapt it based on what your own skin communicates over time.</p>
     </div>
     <div class="blog-section">
-      <h2>Common Mistakes That Undermine Results</h2>
+      <h2>${hMistakes}</h2>
       <p>Even the best-chosen products fail when applied incorrectly, in the wrong order, or with conflicting actives. The most common errors include: introducing too many new products simultaneously (making it impossible to identify what works or irritates); expecting results within days from processes that take weeks; and abandoning a routine at the first sign of an adjustment reaction, which is often temporary.</p>
       <p>Over-treatment is as common as under-treatment. More products, more actives, more frequent exfoliation — these are not improvements on the basics. They are deviations from the basics that frequently damage the skin barrier, trigger sensitisation, and paradoxically worsen the conditions being treated. Restraint and selectivity are marks of skincare sophistication.</p>
       <p>Finally, patch testing is non-negotiable for any new product, particularly those containing active ingredients. Apply a small amount to the inner forearm or behind the ear, leave for 24 hours, and assess for redness, itching, or swelling before applying to the face. This one step prevents the weeks of recovery time that a full-face adverse reaction requires.</p>
@@ -1516,19 +1652,19 @@ function generateLongContent(title, category, date, image, intro1, intro2, bulle
       <ul>${takeawayList}</ul>
     </div>
     <div class="blog-section">
-      <h2>Integrating Lifestyle for Maximum Results</h2>
+      <h2>${hLifestyle}</h2>
       <p>${bodyPara2}</p>
       <p>Sleep is the most underutilised beauty tool available. During deep sleep, human growth hormone secretion peaks, cortisol drops, and cell mitosis accelerates — processes that collectively drive the skin renewal and repair that no topical product can replicate. Seven to nine hours of consistent, quality sleep per night is not a lifestyle luxury; it's a biological necessity for maintaining skin health and appearance at any age.</p>
       <p>Stress management is equally critical. Chronic elevation of cortisol degrades collagen, impairs barrier function, triggers sebaceous hyperactivity (excess oil), and slows wound healing. Practices that measurably reduce cortisol — meditation, moderate exercise, time in nature, creative engagement — have direct, observable effects on skin quality over weeks and months of consistent practice.</p>
     </div>
     <div class="blog-section">
-      <h2>Frequently Asked Questions</h2>
+      <h2>${hFaq}</h2>
       <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>How long before I see meaningful results?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Most topical skincare shows initial results (improved hydration, texture) within two to four weeks. More significant changes — improved tone, reduced pigmentation, visible anti-aging effects — require six to twelve weeks of consistent practice. This timeline reflects the biological reality of skin cell turnover (28–40 days per cycle) and structural remodelling (collagen changes require multiple cycles). Take monthly progress photographs to track cumulative changes that are too gradual to perceive day-to-day.</p></div></div>
       <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Do I need to spend a lot on products to see results?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>No. The science of skincare is in the formulation and active ingredients, not the price point. Many affordable brands — The Ordinary, CeraVe, Purito, COSRX, The Inkey List — deliver clinically validated ingredients at accessible prices. Prioritise spending on SPF (you use it daily and formulation quality matters), a stable vitamin C serum (stability and pH affect efficacy), and any prescription retinoid if appropriate. Save on cleansers, basic toners, and body moisturisers — these categories offer excellent value at low price points.</p></div></div>
       <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>How do I know if a product is causing a reaction versus a normal adjustment period?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>A normal adjustment period (most common with retinoids, AHAs, and vitamin C) involves temporary dryness, mild flaking, and occasional sensitivity, peaking in weeks two to four and resolving as the skin adapts. A true reaction involves persistent redness, burning, stinging, hives, or contact dermatitis that does not improve. If symptoms are severe or persist beyond two weeks, discontinue the product, restore barrier function with gentle moisturiser and ceramides, and consult a dermatologist before reintroducing. Always introduce one new active at a time, spaced two weeks apart.</p></div></div>
     </div>
     <div class="blog-section">
-      <h2>Final Thoughts</h2>
+      <h2>${hClose}</h2>
       <p>${conclusion}</p>
       <p>The most important thing I can leave you with is this: your relationship with your skin should be one of curiosity and care, not frustration and correction. Skin is dynamic — it changes with seasons, hormones, age, and stress. A rigid routine that never adapts will always underperform a responsive one that listens. Pay attention, adjust seasonally, and remember that the goal is never perfection — it's health, confidence, and a skin you feel comfortable and happy in, exactly as it is today.</p>
     </div>
@@ -1564,6 +1700,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBlogs();
   renderBlogs();
   updateAdminStats();
+  applySiteContent();
 });
 
 // ──────────────────────────────────────────────
@@ -1662,13 +1799,266 @@ function handleLogout() {
 }
 
 function showAdminTab(tabName, linkEl) {
-  ['add-blog-tab','add-blog-code-tab','manage-blogs-tab','analytics-tab']
-    .forEach(id => document.getElementById(id).classList.add('hidden'));
+  ['add-blog-tab','add-blog-code-tab','manage-blogs-tab','analytics-tab',
+   'edit-hero-tab','edit-about-tab','edit-contact-tab','edit-footer-tab','edit-nav-tab']
+    .forEach(id => { const el = document.getElementById(id); if(el) el.classList.add('hidden'); });
   document.getElementById(tabName + '-tab').classList.remove('hidden');
   document.querySelectorAll('.admin-menu a').forEach(a => a.classList.remove('active'));
   if (linkEl) linkEl.classList.add('active');
-  if (tabName === 'manage-blogs') loadAdminBlogList();
-  if (tabName === 'analytics') { updateAdminStats(); renderCategoryStats(); }
+  if (tabName === 'manage-blogs')  loadAdminBlogList();
+  if (tabName === 'analytics')     { updateAdminStats(); renderCategoryStats(); }
+  if (tabName === 'edit-hero')     loadHeroFields();
+  if (tabName === 'edit-about')    loadAboutFields();
+  if (tabName === 'edit-contact')  loadContactFields();
+  if (tabName === 'edit-footer')   loadFooterFields();
+  if (tabName === 'edit-nav')      loadSiteIdentityFields();
+}
+
+// ── SITE CONTENT STORAGE KEY ──
+const SITE_KEY = 'mk_site_content';
+
+function getSiteContent() {
+  try { return JSON.parse(localStorage.getItem(SITE_KEY)) || {}; } catch(e) { return {}; }
+}
+
+function saveSiteContent(obj) {
+  const current = getSiteContent();
+  localStorage.setItem(SITE_KEY, JSON.stringify({ ...current, ...obj }));
+}
+
+function statusMsg(id, msg, color) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.style.color = color || '#27ae60';
+  el.textContent = msg;
+  setTimeout(() => { el.textContent = ''; }, 3000);
+}
+
+// ── APPLY SAVED CONTENT ON LOAD ──
+function applySiteContent() {
+  const s = getSiteContent();
+  // Hero
+  if (s.heroEyebrow)     setTxt('.hero-eyebrow', s.heroEyebrow);
+  if (s.heroHeadline)    setTxt('.hero h1', s.heroHeadline);
+  if (s.heroSubtext)     setTxt('.hero p', s.heroSubtext);
+  if (s.heroCtaLabel)    setTxt('.cta-button', s.heroCtaLabel);
+  if (s.heroSectionLabel) setTxt('#home-page .section-label', s.heroSectionLabel);
+  if (s.heroSectionTitle) setTxt('#home-page .section-title', s.heroSectionTitle);
+  // About
+  if (s.aboutLabel)     setTxt('#about-page .section-label', s.aboutLabel);
+  if (s.aboutTitle)     setTxt('#about-page .section-title', s.aboutTitle);
+  if (s.aboutImage)     { const img = document.querySelector('.about-image img'); if(img) img.src = s.aboutImage; }
+  if (s.aboutSubheading) setTxt('.about-text h3', s.aboutSubheading);
+  if (s.aboutP1)        setTxt('.about-text p:nth-of-type(1)', s.aboutP1);
+  if (s.aboutP2)        setTxt('.about-text p:nth-of-type(2)', s.aboutP2);
+  if (s.aboutP3)        setTxt('.about-text p:nth-of-type(3)', s.aboutP3);
+  if (s.stat1Num)       setTxt('.about-text .stat-item:nth-child(1) .stat-number', s.stat1Num);
+  if (s.stat1Lbl)       setTxt('.about-text .stat-item:nth-child(1) .stat-label', s.stat1Lbl);
+  if (s.stat2Num)       setTxt('.about-text .stat-item:nth-child(2) .stat-number', s.stat2Num);
+  if (s.stat2Lbl)       setTxt('.about-text .stat-item:nth-child(2) .stat-label', s.stat2Lbl);
+  if (s.stat3Num)       setTxt('.about-text .stat-item:nth-child(3) .stat-number', s.stat3Num);
+  if (s.stat3Lbl)       setTxt('.about-text .stat-item:nth-child(3) .stat-label', s.stat3Lbl);
+  // Contact
+  if (s.contactLabel)   setTxt('#contact-page .section-label', s.contactLabel);
+  if (s.contactTitle)   setTxt('#contact-page .section-title', s.contactTitle);
+  if (s.contactEmail)   document.querySelectorAll('.contact-card p').forEach((p,i) => { if(i===0) p.textContent = s.contactEmail; });
+  if (s.contactName)    document.querySelectorAll('.contact-card p').forEach((p,i) => { if(i===1) p.textContent = s.contactName; });
+  if (s.contactResponse) document.querySelectorAll('.contact-card p').forEach((p,i) => { if(i===2) p.textContent = s.contactResponse; });
+  if (s.socialFacebook)  setHref('#contact-page .social-links a:nth-child(1)', s.socialFacebook);
+  if (s.socialInstagram) setHref('#contact-page .social-links a:nth-child(2)', s.socialInstagram);
+  if (s.socialTwitter)   setHref('#contact-page .social-links a:nth-child(3)', s.socialTwitter);
+  if (s.socialPinterest) setHref('#contact-page .social-links a:nth-child(4)', s.socialPinterest);
+  // Footer
+  if (s.footerBrand)     setTxt('.footer-section:nth-child(1) h3', s.footerBrand);
+  if (s.footerDesc)      setTxt('.footer-section:nth-child(1) p', s.footerDesc);
+  if (s.footerEmail)     { const el = document.querySelector('.footer-section:nth-child(3) p:nth-child(1)'); if(el) el.innerHTML = `<i class="fas fa-envelope" style="margin-right:0.5rem;color:var(--primary-light);"></i> ${s.footerEmail}`; }
+  if (s.footerName)      { const el = document.querySelector('.footer-section:nth-child(3) p:nth-child(2)'); if(el) el.innerHTML = `<i class="fas fa-user" style="margin-right:0.5rem;color:var(--primary-light);"></i> ${s.footerName}`; }
+  if (s.footerYear)      { const el = document.querySelector('.footer-section:nth-child(3) p:nth-child(3)'); if(el) el.innerHTML = `<i class="fas fa-calendar" style="margin-right:0.5rem;color:var(--primary-light);"></i> ${s.footerYear}`; }
+  if (s.footerCopyright) setTxt('.footer-bottom p', s.footerCopyright);
+  // Site Identity
+  if (s.tabTitle)        document.title = s.tabTitle;
+  if (s.navWord1 || s.navWord2) {
+    const logo = document.querySelector('nav .logo');
+    if (logo) logo.innerHTML = `${s.navWord1 || 'Maria'} <span>${s.navWord2 || 'Kanwal'}</span>`;
+  }
+  if (s.colorPrimary) document.documentElement.style.setProperty('--primary', s.colorPrimary);
+  if (s.colorGold)    document.documentElement.style.setProperty('--gold', s.colorGold);
+  if (s.colorDark)    document.documentElement.style.setProperty('--dark', s.colorDark);
+}
+
+function setTxt(sel, val) { const el = document.querySelector(sel); if(el) el.textContent = val; }
+function setHref(sel, val) { const el = document.querySelector(sel); if(el) el.href = val; }
+function getTxt(sel) { const el = document.querySelector(sel); return el ? el.textContent.trim() : ''; }
+function getHref(sel) { const el = document.querySelector(sel); return el ? el.getAttribute('href') || '' : ''; }
+function setVal(id, val) { const el = document.getElementById(id); if(el && val !== undefined) el.value = val; }
+
+// ── HERO ──
+function loadHeroFields() {
+  const s = getSiteContent();
+  setVal('hero-eyebrow',      s.heroEyebrow      || getTxt('.hero-eyebrow'));
+  setVal('hero-headline',     s.heroHeadline     || getTxt('.hero h1'));
+  setVal('hero-subtext',      s.heroSubtext      || getTxt('.hero p'));
+  setVal('hero-cta-label',    s.heroCtaLabel     || getTxt('.cta-button'));
+  setVal('hero-section-label',s.heroSectionLabel || getTxt('#home-page .section-label'));
+  setVal('hero-section-title',s.heroSectionTitle || getTxt('#home-page .section-title'));
+}
+
+function saveHero() {
+  const data = {
+    heroEyebrow:      document.getElementById('hero-eyebrow').value.trim(),
+    heroHeadline:     document.getElementById('hero-headline').value.trim(),
+    heroSubtext:      document.getElementById('hero-subtext').value.trim(),
+    heroCtaLabel:     document.getElementById('hero-cta-label').value.trim(),
+    heroSectionLabel: document.getElementById('hero-section-label').value.trim(),
+    heroSectionTitle: document.getElementById('hero-section-title').value.trim(),
+  };
+  saveSiteContent(data);
+  applySiteContent();
+  statusMsg('hero-status', '✓ Hero section saved and applied!');
+}
+
+// ── ABOUT ──
+function loadAboutFields() {
+  const s = getSiteContent();
+  setVal('about-label',      s.aboutLabel      || getTxt('#about-page .section-label'));
+  setVal('about-title',      s.aboutTitle      || getTxt('#about-page .section-title'));
+  const img = document.querySelector('.about-image img');
+  setVal('about-image',      s.aboutImage      || (img ? img.src : ''));
+  setVal('about-subheading', s.aboutSubheading || getTxt('.about-text h3'));
+  setVal('about-p1',         s.aboutP1         || getTxt('.about-text p:nth-of-type(1)'));
+  setVal('about-p2',         s.aboutP2         || getTxt('.about-text p:nth-of-type(2)'));
+  setVal('about-p3',         s.aboutP3         || getTxt('.about-text p:nth-of-type(3)'));
+  setVal('about-stat1-num',  s.stat1Num        || getTxt('.about-text .stat-item:nth-child(1) .stat-number'));
+  setVal('about-stat1-lbl',  s.stat1Lbl        || getTxt('.about-text .stat-item:nth-child(1) .stat-label'));
+  setVal('about-stat2-num',  s.stat2Num        || getTxt('.about-text .stat-item:nth-child(2) .stat-number'));
+  setVal('about-stat2-lbl',  s.stat2Lbl        || getTxt('.about-text .stat-item:nth-child(2) .stat-label'));
+  setVal('about-stat3-num',  s.stat3Num        || getTxt('.about-text .stat-item:nth-child(3) .stat-number'));
+  setVal('about-stat3-lbl',  s.stat3Lbl        || getTxt('.about-text .stat-item:nth-child(3) .stat-label'));
+}
+
+function saveAbout() {
+  const data = {
+    aboutLabel:      document.getElementById('about-label').value.trim(),
+    aboutTitle:      document.getElementById('about-title').value.trim(),
+    aboutImage:      document.getElementById('about-image').value.trim(),
+    aboutSubheading: document.getElementById('about-subheading').value.trim(),
+    aboutP1:         document.getElementById('about-p1').value.trim(),
+    aboutP2:         document.getElementById('about-p2').value.trim(),
+    aboutP3:         document.getElementById('about-p3').value.trim(),
+    stat1Num:        document.getElementById('about-stat1-num').value.trim(),
+    stat1Lbl:        document.getElementById('about-stat1-lbl').value.trim(),
+    stat2Num:        document.getElementById('about-stat2-num').value.trim(),
+    stat2Lbl:        document.getElementById('about-stat2-lbl').value.trim(),
+    stat3Num:        document.getElementById('about-stat3-num').value.trim(),
+    stat3Lbl:        document.getElementById('about-stat3-lbl').value.trim(),
+  };
+  saveSiteContent(data);
+  applySiteContent();
+  statusMsg('about-status', '✓ About page saved and applied!');
+}
+
+// ── CONTACT ──
+function loadContactFields() {
+  const s = getSiteContent();
+  const cards = document.querySelectorAll('#contact-page .contact-card p');
+  setVal('contact-label',        s.contactLabel    || getTxt('#contact-page .section-label'));
+  setVal('contact-title',        s.contactTitle    || getTxt('#contact-page .section-title'));
+  setVal('contact-email-val',    s.contactEmail    || (cards[0] ? cards[0].textContent.trim() : ''));
+  setVal('contact-name-val',     s.contactName     || (cards[1] ? cards[1].textContent.trim() : ''));
+  setVal('contact-response-val', s.contactResponse || (cards[2] ? cards[2].textContent.trim() : ''));
+  setVal('social-facebook',  s.socialFacebook  || '');
+  setVal('social-instagram', s.socialInstagram || '');
+  setVal('social-twitter',   s.socialTwitter   || '');
+  setVal('social-pinterest', s.socialPinterest || '');
+}
+
+function saveContact() {
+  const data = {
+    contactLabel:    document.getElementById('contact-label').value.trim(),
+    contactTitle:    document.getElementById('contact-title').value.trim(),
+    contactEmail:    document.getElementById('contact-email-val').value.trim(),
+    contactName:     document.getElementById('contact-name-val').value.trim(),
+    contactResponse: document.getElementById('contact-response-val').value.trim(),
+    socialFacebook:  document.getElementById('social-facebook').value.trim(),
+    socialInstagram: document.getElementById('social-instagram').value.trim(),
+    socialTwitter:   document.getElementById('social-twitter').value.trim(),
+    socialPinterest: document.getElementById('social-pinterest').value.trim(),
+  };
+  saveSiteContent(data);
+  applySiteContent();
+  statusMsg('contact-status', '✓ Contact info saved and applied!');
+}
+
+// ── FOOTER ──
+function loadFooterFields() {
+  const s = getSiteContent();
+  setVal('footer-brand',     s.footerBrand     || getTxt('.footer-section:nth-child(1) h3'));
+  setVal('footer-desc',      s.footerDesc      || getTxt('.footer-section:nth-child(1) p'));
+  setVal('footer-email',     s.footerEmail     || 'medrankseo@gmail.com');
+  setVal('footer-name',      s.footerName      || 'Maria Kanwal');
+  setVal('footer-year',      s.footerYear      || 'Est. 2026');
+  setVal('footer-copyright', s.footerCopyright || getTxt('.footer-bottom p'));
+}
+
+function saveFooter() {
+  const data = {
+    footerBrand:     document.getElementById('footer-brand').value.trim(),
+    footerDesc:      document.getElementById('footer-desc').value.trim(),
+    footerEmail:     document.getElementById('footer-email').value.trim(),
+    footerName:      document.getElementById('footer-name').value.trim(),
+    footerYear:      document.getElementById('footer-year').value.trim(),
+    footerCopyright: document.getElementById('footer-copyright').value.trim(),
+  };
+  saveSiteContent(data);
+  applySiteContent();
+  statusMsg('footer-status', '✓ Footer saved and applied!');
+}
+
+// ── SITE IDENTITY ──
+function loadSiteIdentityFields() {
+  const s = getSiteContent();
+  const logo = document.querySelector('nav .logo');
+  setVal('site-tab-title', s.tabTitle  || document.title);
+  setVal('nav-logo-word1', s.navWord1  || (logo ? logo.childNodes[0].textContent.trim() : 'Maria'));
+  setVal('nav-logo-word2', s.navWord2  || 'Kanwal');
+  const cp = getComputedStyle(document.documentElement);
+  document.getElementById('color-primary').value = s.colorPrimary || rgbToHex(cp.getPropertyValue('--primary').trim()) || '#c8956c';
+  document.getElementById('color-gold').value    = s.colorGold    || rgbToHex(cp.getPropertyValue('--gold').trim())    || '#b8973a';
+  document.getElementById('color-dark').value    = s.colorDark    || rgbToHex(cp.getPropertyValue('--dark').trim())    || '#2d2118';
+}
+
+function saveSiteIdentity() {
+  const data = {
+    tabTitle:     document.getElementById('site-tab-title').value.trim(),
+    navWord1:     document.getElementById('nav-logo-word1').value.trim(),
+    navWord2:     document.getElementById('nav-logo-word2').value.trim(),
+    colorPrimary: document.getElementById('color-primary').value,
+    colorGold:    document.getElementById('color-gold').value,
+    colorDark:    document.getElementById('color-dark').value,
+  };
+  saveSiteContent(data);
+  applySiteContent();
+  statusMsg('nav-status', '✓ Site identity saved and applied!');
+}
+
+function resetColors() {
+  document.getElementById('color-primary').value = '#c8956c';
+  document.getElementById('color-gold').value    = '#b8973a';
+  document.getElementById('color-dark').value    = '#2d2118';
+  const s = getSiteContent();
+  delete s.colorPrimary; delete s.colorGold; delete s.colorDark;
+  localStorage.setItem(SITE_KEY, JSON.stringify(s));
+  document.documentElement.style.setProperty('--primary', '#c8956c');
+  document.documentElement.style.setProperty('--gold', '#b8973a');
+  document.documentElement.style.setProperty('--dark', '#2d2118');
+  statusMsg('nav-status', '✓ Colours reset to defaults!');
+}
+
+function rgbToHex(rgb) {
+  if (!rgb || rgb.startsWith('#')) return rgb;
+  const m = rgb.match(/\d+/g);
+  if (!m || m.length < 3) return '#c8956c';
+  return '#' + m.slice(0,3).map(x => parseInt(x).toString(16).padStart(2,'0')).join('');
 }
 
 // ──────────────────────────────────────────────
@@ -1851,14 +2241,4 @@ function handleContactSubmit(e) {
 
 // ──────────────────────────────────────────────
 //  UTILITIES
-// ──────────────────────────────────────────────
-function escapeAttr(str) {
-  return (str || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-}
-
-function escapeHtml(str) {
-  return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-</script>
-</body>
-</html>
+// ────────────────
