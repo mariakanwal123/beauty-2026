@@ -1011,18 +1011,23 @@
 
                 <!-- TAB: Add Blog (Form) -->
                 <div id="add-blog-tab">
-                    <h3 style="margin-bottom:1.5rem;color:var(--dark);font-size:1.6rem;">Create New Blog <span style="font-style:italic;color:var(--primary);">(Form)</span></h3>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+                        <h3 style="color:var(--dark);font-size:1.6rem;">Create New Blog <span style="font-style:italic;color:var(--primary);">(Form)</span></h3>
+                        <button class="btn btn-success" onclick="publishBlog()" style="padding:0.7rem 1.6rem;border-radius:3rem;"><i class="fas fa-plus"></i> Add Blog</button>
+                    </div>
                     <div class="form-group"><label>Blog Title *</label><input type="text" id="new-blog-title" placeholder="Enter blog title"></div>
                     <div class="form-group"><label>Category *</label><input type="text" id="new-blog-category" placeholder="e.g. Skincare, Makeup, Wellness"></div>
                     <div class="form-group"><label>Excerpt (shown on card)</label><textarea id="new-blog-excerpt" rows="3" placeholder="Short compelling description..."></textarea></div>
                     <div class="form-group"><label>Featured Image URL</label><input type="text" id="new-blog-image" placeholder="https://images.unsplash.com/..."></div>
                     <div class="form-group"><label>Full Blog Content (HTML)</label><textarea id="new-blog-content" class="code-editor" placeholder="<h2>Introduction</h2>&#10;<p>Your content here...</p>"></textarea></div>
-                    <button class="btn btn-success" onclick="publishBlog()" style="padding:0.9rem 2rem;font-size:0.9rem;border-radius:3rem;"><i class="fas fa-upload"></i> Publish Blog</button>
                 </div>
 
                 <!-- TAB: Add Blog (Code) -->
                 <div id="add-blog-code-tab" class="hidden">
-                    <h3 style="margin-bottom:0.5rem;color:var(--dark);font-size:1.6rem;">Add Blog <span style="font-style:italic;color:var(--primary);">via Raw JSON / Code</span></h3>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+                        <h3 style="color:var(--dark);font-size:1.6rem;">Add Blog <span style="font-style:italic;color:var(--primary);">via Raw JSON / Code</span></h3>
+                        <button class="btn btn-success" onclick="publishBlogFromCode()" style="padding:0.7rem 1.6rem;border-radius:3rem;"><i class="fas fa-plus"></i> Add Blog</button>
+                    </div>
                     <p style="color:var(--secondary);font-size:0.9rem;margin-bottom:1.5rem;">Paste a complete blog object as JSON below. You can define every field manually for maximum control.</p>
                     <div style="background:#1e1612;border-radius:4px;padding:1.2rem;margin-bottom:1rem;">
                         <p style="color:#b8973a;font-family:'Courier New',monospace;font-size:0.8rem;margin-bottom:0.8rem;">// JSON Template — copy, fill in, paste below</p>
@@ -1045,14 +1050,20 @@
 
                 <!-- TAB: Manage & Edit -->
                 <div id="manage-blogs-tab" class="hidden">
-                    <h3 style="margin-bottom:1.5rem;color:var(--dark);font-size:1.6rem;">Manage & <span style="font-style:italic;color:var(--primary);">Edit Blogs</span></h3>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+                        <h3 style="color:var(--dark);font-size:1.6rem;">Manage & <span style="font-style:italic;color:var(--primary);">Edit Blogs</span></h3>
+                        <button class="btn btn-success" onclick="goToAddBlogTab()" style="padding:0.7rem 1.6rem;border-radius:3rem;"><i class="fas fa-plus"></i> Add New Blog</button>
+                    </div>
                     <p style="color:var(--secondary);font-size:0.88rem;margin-bottom:1.5rem;">Click <strong>Edit</strong> to modify any blog's title, category, excerpt, image, or full HTML content inline.</p>
                     <div class="blog-list" id="admin-blog-list"></div>
                 </div>
 
                 <!-- TAB: Analytics -->
                 <div id="analytics-tab" class="hidden">
-                    <h3 style="margin-bottom:1.5rem;color:var(--dark);font-size:1.6rem;">Blog <span style="font-style:italic;color:var(--primary);">Analytics</span></h3>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+                        <h3 style="color:var(--dark);font-size:1.6rem;">Blog <span style="font-style:italic;color:var(--primary);">Analytics</span></h3>
+                        <button class="btn btn-success" onclick="goToAddBlogTab()" style="padding:0.7rem 1.6rem;border-radius:3rem;"><i class="fas fa-plus"></i> Add New Blog</button>
+                    </div>
                     <div class="stats" style="grid-template-columns:repeat(4,1fr);gap:1.2rem;">
                         <div class="stat-item"><span class="stat-number" id="total-blogs">0</span><span class="stat-label">Total Blogs</span></div>
                         <div class="stat-item"><span class="stat-number">2026</span><span class="stat-label">Year Active</span></div>
@@ -1067,7 +1078,10 @@
 
                 <!-- TAB: Edit Hero -->
                 <div id="edit-hero-tab" class="hidden">
-                    <h3 style="margin-bottom:0.4rem;color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">Hero Section</span></h3>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;">
+                        <h3 style="color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">Hero Section</span></h3>
+                        <button class="btn btn-success" onclick="saveHero()" style="padding:0.7rem 1.6rem;border-radius:3rem;"><i class="fas fa-plus"></i> Add / Save</button>
+                    </div>
                     <p style="color:var(--secondary);font-size:0.88rem;margin-bottom:1.8rem;">Changes update the homepage hero banner instantly and are saved to your browser.</p>
                     <div class="form-group"><label>Eyebrow Text <span style="font-weight:400;color:var(--secondary);">(small text above headline)</span></label><input type="text" id="hero-eyebrow" placeholder="Beauty · Skincare · Wellness"></div>
                     <div class="form-group"><label>Main Headline</label><input type="text" id="hero-headline" placeholder="Discover Your Natural Radiance"></div>
@@ -1084,7 +1098,10 @@
 
                 <!-- TAB: Edit About -->
                 <div id="edit-about-tab" class="hidden">
-                    <h3 style="margin-bottom:0.4rem;color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">About Page</span></h3>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;">
+                        <h3 style="color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">About Page</span></h3>
+                        <button class="btn btn-success" onclick="saveAbout()" style="padding:0.7rem 1.6rem;border-radius:3rem;"><i class="fas fa-plus"></i> Add / Save</button>
+                    </div>
                     <p style="color:var(--secondary);font-size:0.88rem;margin-bottom:1.8rem;">Update your profile photo, bio, and stat numbers.</p>
                     <div class="form-group"><label>Section Label <span style="font-weight:400;color:var(--secondary);">(small text above title)</span></label><input type="text" id="about-label" placeholder="Who I Am"></div>
                     <div class="form-group"><label>Page Title</label><input type="text" id="about-title" placeholder="About Maria Kanwal"></div>
@@ -1108,7 +1125,10 @@
 
                 <!-- TAB: Edit Contact -->
                 <div id="edit-contact-tab" class="hidden">
-                    <h3 style="margin-bottom:0.4rem;color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">Contact Info</span></h3>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;">
+                        <h3 style="color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">Contact Info</span></h3>
+                        <button class="btn btn-success" onclick="saveContact()" style="padding:0.7rem 1.6rem;border-radius:3rem;"><i class="fas fa-plus"></i> Add / Save</button>
+                    </div>
                     <p style="color:var(--secondary);font-size:0.88rem;margin-bottom:1.8rem;">Update the contact section label, title, email, name, response time, and social links.</p>
                     <div class="form-group"><label>Section Label</label><input type="text" id="contact-label" placeholder="Let's Connect"></div>
                     <div class="form-group"><label>Section Title</label><input type="text" id="contact-title" placeholder="Get In Touch"></div>
@@ -1131,7 +1151,10 @@
 
                 <!-- TAB: Edit Footer -->
                 <div id="edit-footer-tab" class="hidden">
-                    <h3 style="margin-bottom:0.4rem;color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">Footer</span></h3>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;">
+                        <h3 style="color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">Footer</span></h3>
+                        <button class="btn btn-success" onclick="saveFooter()" style="padding:0.7rem 1.6rem;border-radius:3rem;"><i class="fas fa-plus"></i> Add / Save</button>
+                    </div>
                     <p style="color:var(--secondary);font-size:0.88rem;margin-bottom:1.8rem;">Update footer brand text, description, contact details, and copyright line.</p>
                     <div class="form-group"><label>Footer Brand Name</label><input type="text" id="footer-brand" placeholder="Maria Kanwal Beauty"></div>
                     <div class="form-group"><label>Footer Description</label><textarea id="footer-desc" rows="3" placeholder="Your trusted source for beauty tips..."></textarea></div>
@@ -1148,7 +1171,10 @@
 
                 <!-- TAB: Edit Site Identity / Nav -->
                 <div id="edit-nav-tab" class="hidden">
-                    <h3 style="margin-bottom:0.4rem;color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">Site Identity</span></h3>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;">
+                        <h3 style="color:var(--dark);font-size:1.6rem;">Edit <span style="font-style:italic;color:var(--primary);">Site Identity</span></h3>
+                        <button class="btn btn-success" onclick="saveSiteIdentity()" style="padding:0.7rem 1.6rem;border-radius:3rem;"><i class="fas fa-plus"></i> Add / Save</button>
+                    </div>
                     <p style="color:var(--secondary);font-size:0.88rem;margin-bottom:1.8rem;">Update the site name shown in the navbar, browser tab title, and any site-wide branding.</p>
                     <div class="form-group"><label>Browser Tab Title</label><input type="text" id="site-tab-title" placeholder="Maria Kanwal Beauty | Professional Beauty & Wellness"></div>
                     <div class="form-group"><label>Navbar Logo — First Word <span style="font-weight:400;color:var(--secondary);">(plain colour)</span></label><input type="text" id="nav-logo-word1" placeholder="Maria"></div>
@@ -1677,8 +1703,13 @@ function generateLongContent(title, category, date, image, intro1, intro2, bulle
 let blogs = [];
 let isAdmin = false;
 
+function goToAddBlogTab() {
+  const firstLink = document.querySelector('.admin-menu a');
+  showAdminTab('add-blog', firstLink);
+}
+
 function initBlogs() {
-  const stored = localStorage.getItem('blogs_mk_v2');
+  const stored = localStorage.getItem('blogs_mk_v3');
   if (stored) {
     try {
       const parsed = JSON.parse(stored);
@@ -1693,7 +1724,7 @@ function initBlogs() {
 }
 
 function saveBlogs() {
-  localStorage.setItem('blogs_mk_v2', JSON.stringify(blogs));
+  localStorage.setItem('blogs_mk_v3', JSON.stringify(blogs));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
