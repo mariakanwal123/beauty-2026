@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maria Kanwal Beauty | Professional Beauty & Wellness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #d4a5a5;
+            --secondary: #9b8b8b;
+            --accent: #f9e4d4;
+            --dark: #4a4a4a;
+            --light: #faf7f5;
+            --gold: #c9a961;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .admin-btn {
+            background: var(--gold);
+            color: var(--white) !important;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .blog-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--gold);
+            color: var(--white);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-date {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .blog-excerpt {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 165, 165, 0.3);
+        }
+
+        /* Blog Detail Page */
+        .blog-detail {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: gap 0.3s;
+        }
+
+        .back-button:hover {
+            gap: 1rem;
+        }
+
+        .blog-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .blog-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .blog-featured-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+        }
+
+        .blog-section {
+            margin-bottom: 3rem;
+        }
+
+        .blog-section h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .blog-section h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin: 2rem 0 1rem;
+        }
+
+        .blog-section p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--secondary);
+        }
+
+        .blog-section ul, .blog-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .blog-section li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .infographic {
+            background: var(--light);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 2.5rem 0;
+            border-left: 4px solid var(--gold);
+        }
+
+        .infographic h3 {
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .infographic ul {
+            list-style: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        .infographic li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .infographic li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .key-takeaways {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            padding: 3rem;
+            border-radius: 20px;
+            color: var(--white);
+            margin: 3rem 0;
+        }
+
+        .key-takeaways h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .key-takeaways ul {
+            list-style: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        .key-takeaways li {
+            padding: 1rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .key-takeaways li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .faq-item {
+            background: var(--light);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Admin Panel */
+        .admin-login {
+            max-width: 500px;
+            margin: 4rem auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .admin-panel {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+
+        .admin-sidebar {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        .admin-menu {
+            list-style: none;
+        }
+
+        .admin-menu li {
+            margin-bottom: 1rem;
+        }
+
+        .admin-menu a {
+            display: block;
+            padding: 1rem;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        .admin-menu a:hover,
+        .admin-menu a.active {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .admin-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .code-editor {
+            width: 100%;
+            min-height: 400px;
+            font-family: 'Courier New', monospace;
+            padding: 1.5rem;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            resize: vertical;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .blog-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 10px;
+        }
+
+        .blog-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+            color: var(--white);
+        }
+
+        .btn-success {
+            background: #27ae60;
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--secondary);
+            text-decoration: none;
+            line-height: 2;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-detail {
+                padding: 2rem 1.5rem;
+            }
+
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .blog-featured-image {
+                height: 300px;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">Maria Kanwal Beauty</a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('about')">About</a></li>
+                <li><a href="#" onclick="showPage('blogs')">Blogs</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                <li><a href="#" class="admin-btn" onclick="showPage('admin-login')">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home-page" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Discover Your Natural Beauty</h1>
+                <p>Expert beauty tips, skincare routines, and wellness advice curated by Maria Kanwal to help you look and feel your best in 2026</p>
+                <a href="#" class="cta-button" onclick="showPage('blogs')">Explore Blogs</a>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Featured Articles</h2>
+            <div class="blog-grid" id="featured-blogs">
+                <!-- Featured blogs will be loaded here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about-page" class="page hidden">
+        <section>
+            <h2 class="section-title">About Maria Kanwal</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=600" alt="Maria Kanwal">
+                </div>
+                <div class="about-text">
+                    <h3>Beauty Expert & Wellness Advocate</h3>
+                    <p>Welcome to my beauty sanctuary! I'm Maria Kanwal, a certified beauty therapist and wellness coach with over 10 years of experience in the beauty industry.</p>
+                    <p>My mission is to empower women with knowledge about skincare, makeup techniques, and holistic wellness practices. I believe that true beauty comes from within, and my goal is to help you discover and enhance your natural radiance.</p>
+                    <p>Through my blog, I share evidence-based beauty tips, product reviews, DIY recipes, and lifestyle advice that have transformed the lives of thousands of women worldwide.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span>Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span>Articles Published</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50k+</span>
+                            <span>Happy Readers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Blogs Page -->
+    <div id="blogs-page" class="page hidden">
+        <section>
+            <h2 class="section-title">Beauty Blog</h2>
+            <div class="blog-grid" id="all-blogs">
+                <!-- All blogs will be loaded here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Blog Detail Page -->
+    <div id="blog-detail-page" class="page hidden">
+        <section>
+            <div class="blog-detail" id="blog-content">
+                <!-- Blog content will be loaded here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact-page" class="page hidden">
+        <section>
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>medrankseo@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Name</h4>
+                            <p>Maria Kanwal</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Response Time</h4>
+                            <p>Within 24 hours</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" required placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" required placeholder="Enter subject">
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="5" required placeholder="Your message"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Admin Login -->
+    <div id="admin-login-page" class="page hidden">
+        <div class="admin-login">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary);">Admin Login</h2>
+            <form onsubmit="handleAdminLogin(event)">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="admin-email" required placeholder="Enter admin email">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="admin-password" required placeholder="Enter password">
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <p id="login-hint" style="text-align: center; margin-top: 1rem; color: var(--secondary); font-size: 0.85rem; cursor: pointer;" onclick="showHint()">
+                <i class="fas fa-question-circle"></i> Need help?
+            </p>
+            <p id="hint-text" class="hidden" style="text-align: center; margin-top: 0.5rem; color: var(--primary); font-size: 0.8rem; font-style: italic;">
+                Contact Maria for access credentials
+            </p>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel-page" class="page hidden">
+        <div class="admin-panel" style="display: block;">
+            <div class="admin-header">
+                <h2>Admin Dashboard</h2>
+                <button class="btn btn-danger" onclick="handleLogout()">Logout</button>
+            </div>
+            <div class="admin-grid">
+                <div class="admin-sidebar">
+                    <ul class="admin-menu">
+                        <li><a href="#" class="active" onclick="showAdminTab('add-blog')">Add New Blog</a></li>
+                        <li><a href="#" onclick="showAdminTab('manage-blogs')">Manage Blogs</a></li>
+                        <li><a href="#" onclick="showAdminTab('analytics')">Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="admin-content">
+                    <div id="add-blog-tab">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Create New Blog</h3>
+                        <div class="form-group">
+                            <label>Blog Title</label>
+                            <input type="text" id="new-blog-title" placeholder="Enter blog title">
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <input type="text" id="new-blog-category" placeholder="e.g., Skincare, Makeup, Wellness">
+                        </div>
+                        <div class="form-group">
+                            <label>Blog Content (HTML Code)</label>
+                            <textarea id="new-blog-content" class="code-editor" placeholder="<h2>Introduction</h2><p>Your content here...</p>"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Excerpt</label>
+                            <textarea id="new-blog-excerpt" rows="3" placeholder="Short description for blog card"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Featured Image URL</label>
+                            <input type="text" id="new-blog-image" placeholder="https://example.com/image.jpg">
+                        </div>
+                        <button class="btn btn-success" onclick="publishBlog()" style="width: 100%; padding: 1rem;">Publish Blog</button>
+                    </div>
+                    
+                    <div id="manage-blogs-tab" class="hidden">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Manage Existing Blogs</h3>
+                        <div class="blog-list" id="admin-blog-list">
+                            <!-- Blog list will be loaded here -->
+                        </div>
+                    </div>
+
+                    <div id="analytics-tab" class="hidden">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Blog Analytics</h3>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="total-blogs">0</span>
+                                <span>Total Blogs</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">2026</span>
+                                <span>Current Year</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span>Uptime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Maria Kanwal Beauty</h3>
+                <p>Your trusted source for beauty tips, skincare advice, and wellness inspiration. Empowering women to feel confident and beautiful since 2026.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#" onclick="showPage('about')">About Me</a></p>
+                <p><a href="#" onclick="showPage('blogs')">All Blogs</a></p>
+                <p><a href="#" onclick="showPage('contact')">Contact</a></p>
+                <p><a href="#" class="admin-btn" onclick="showPage('admin-login')">Admin Login</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> medrankseo@gmail.com</p>
+                <p><i class="fas fa-user" style="margin-right: 0.5rem;"></i> Maria Kanwal</p>
+                <p><i class="fas fa-calendar" style="margin-right: 0.5rem;"></i> Est. 2026</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Maria Kanwal Beauty. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for beauty enthusiasts</p>
+        </div>
+    </footer>
+
+    <script>
+        function showHint() {
+            const hint = document.getElementById('hint-text');
+            hint.classList.toggle('hidden');
+        }
+
+        // Comprehensive blog data with unique images and 1700-2000 words each
+        const defaultBlogs = [
+            {
+                id: 1,
+                title: "The Ultimate Guide to Glass Skin: Korean Beauty Secrets Revealed",
+                category: "Skincare",
+                date: "January 15, 2026",
+                excerpt: "Discover the step-by-step Korean skincare routine that will give you that coveted dewy, translucent glass skin look.",
+                image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800",
+                content: `
+                    <a class="back-button" onclick="goBackToBlogs()"><i class="fas fa-arrow-left"></i> Back to Blogs</a>
+                    <div class="blog-header">
+                        <h1>The Ultimate Guide to Glass Skin: Korean Beauty Secrets Revealed</h1>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> January 15, 2026</span>
+                            <span><i class="far fa-user"></i> Maria Kanwal</span>
+                            <span><i class="far fa-clock"></i> 12 min read</span>
+                        </div>
+                    </div>
+                    
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=900" alt="Glass Skin Korean Beauty" class="blog-featured-image">
+                    
+                    <div class="blog-section">
+                        <h2>Introduction: The Phenomenon of Glass Skin</h2>
+                        <p>Glass skin has become one of the most sought-after beauty trends worldwide, captivating millions with its promise of luminous, translucent, and perfectly smooth complexion. This revolutionary Korean beauty concept refers to skin that is so hydrated, even-toned, and radiant that it resembles clear glass—reflecting light beautifully and appearing almost poreless.</p>
+                        
+                        <p>The glass skin phenomenon isn't just about having perfect skin genetics; it's about achieving maximum hydration and radiance through a dedicated, multi-step skincare routine that has been perfected over decades in South Korea. Unlike Western beauty standards that often focus on coverage and correction, the Korean approach emphasizes prevention, hydration, and nurturing your skin's natural barrier.</p>
+                        
+                        <p>In this comprehensive guide, I'll walk you through every aspect of achieving glass skin, from understanding the philosophy behind Korean skincare to implementing the exact steps, products, and techniques used by K-beauty experts. Whether you have oily, dry, combination, or sensitive skin, you can adapt these principles to achieve your own version of that coveted glass-like glow.</p>
+                    </div>
+
+                    <div class="infographic">
+                        <h3><i class="fas fa-info-circle"></i> The Complete 10-Step Korean Skincare Routine</h3>
+                        <ul>
+                            <li><strong>Step 1: Oil-Based Cleanser</strong> - Removes makeup, sunscreen, and sebum</li>
+                            <li><strong>Step 2: Water-Based Cleanser</strong> - Deep cleanses pores and removes impurities</li>
+                            <li><strong>Step 3: Exfoliator</strong> - 2-3 times weekly for smooth texture and cell turnover</li>
+                            <li><strong>Step 4: Toner</strong> - Balances pH and preps skin for absorption</li>
+                            <li><strong>Step 5: Essence</strong> - Hydrates and promotes cell regeneration</li>
+                            <li><strong>Step 6: Serum/Ampoule</strong> - Targets specific concerns with concentrated actives</li>
+                            <li><strong>Step 7: Sheet Mask</strong> - Intensive treatment and hydration boost</li>
+                            <li><strong>Step 8: Eye Cream</strong> - Nourishes delicate eye area</li>
+                            <li><strong>Step 9: Moisturizer</strong> - Locks in all layers of hydration</li>
+                            <li><strong>Step 10: Sunscreen (AM) / Sleeping Mask (PM)</strong> - Protection or overnight repair</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-section">
+                        <h2>Understanding the Korean Skincare Philosophy</h2>
+                        <p>Korean skincare is built on fundamentally different principles than Western beauty routines. The core philosophy centers on prevention rather than correction, viewing skincare as a form of self-care and ritual rather than a chore. This mindset shift is crucial for achieving long-term results.</p>
+                        
+                        <h3>The Layering Technique</h3>
+                        <p>One of the most important concepts in Korean skincare is layering lightweight, hydrating products. Instead of applying one thick moisturizer, the Korean method involves applying multiple thin layers of hydration. This technique allows each product to penetrate deeper into the skin, providing more effective and long-lasting moisture.</p>
+                        
+                        <p>Think of it like drinking water throughout the day versus chugging a gallon at once—your skin absorbs and benefits more from consistent, layered hydration. Each layer serves a specific purpose: toners balance and prep, essences hydrate and repair, serums target concerns, and moisturizers seal everything in.</p>
+                        
+                        <h3>Gentle is Better</h3>
+                        <p>Korean skincare emphasizes gentle, non-irritating products and techniques. Harsh scrubs, strong acids, and aggressive treatments are avoided in favor of nourishing ingredients that work with your skin's natural processes. This gentle approach prevents damage to the skin barrier, which is essential for maintaining that glass-like appearance.</p>
+                        
+                        <h3>Consistency Over Intensity</h3>
+                        <p>Perhaps the most important principle is consistency. Korean beauty culture views skincare as a daily ritual, not something you do only when problems arise. This consistent, gentle care creates cumulative benefits that far outweigh occasional intensive treatments.</p>
+                    </div>
+
+                    <div class="blog-section">
+                        <h2>Key Ingredients for Glass Skin</h2>
+                        <p>Certain ingredients are absolute staples in Korean skincare and are essential for achieving that glass skin glow. Understanding these powerhouses will help you choose the right products.</p>
+                        
+                        <h3>Hyaluronic Acid</h3>
+                        <p>This moisture magnet can hold up to 1000 times its weight in water, making it indispensable for plump, hydrated skin. Korean formulations often use multiple molecular weights of hyaluronic acid to penetrate different layers of the skin. Look for products labeled with sodium hyaluronate, hydrolyzed hyaluronic acid, or sodium acetylated hyaluronate for enhanced benefits.</p>
+                        
+                        <h3>Snail Mucin</h3>
+                        <p>While it might sound unusual, snail secretion filtrate is a Korean skincare superstar. It contains glycoproteins, hyaluronic acid, and glycolic acid that promote healing, hydration, and skin regeneration. It's particularly effective for repairing damaged skin barriers and reducing the appearance of scars and hyperpigmentation.</p>
+                        
+                        <h3>Niacinamide (Vitamin B3)</h3>
+                        <p>This versatile ingredient brightens skin, minimizes pores, regulates oil production, and strengthens the skin barrier. It's suitable for all skin types and works well with other active ingredients. Korean products often contain 2-5% niacinamide for optimal results without irritation.</p>
+                        
+                        <h3>Ceramides</h3>
+                        <p>These lipid molecules make up about 50% of your skin's composition and are crucial for maintaining a healthy skin barrier. Ceramides prevent moisture loss and protect against environmental aggressors. Korean skincare emphasizes replenishing ceramides through topical application.</p>
+                        
+                        <h3>Centella Asiatica (Cica)</h3>
+                        <p>This healing herb has been used in Asian medicine for centuries. It soothes inflammation, promotes wound healing, and stimulates collagen production. It's particularly beneficial for sensitive or acne-prone skin.</p>
+                        
+                        <h3>Propolis</h3>
+                        <p>Made by bees from tree resins, propolis has antibacterial, anti-inflammatory, and antioxidant properties. It helps heal acne, calm irritation, and protect against environmental damage while providing a natural glow.</p>
+                        
+                        <h3>Rice Extract</h3>
+                        <p>A traditional Korean beauty ingredient, rice extract brightens skin, evens tone, and provides antioxidants. It contains ferulic acid and allantoin, which soothe and protect the skin.</p>
+                    </div>
+
+                    <div class="blog-section">
+                        <h2>Step-by-Step Implementation Guide</h2>
+                        
+                        <h3>Morning Routine (15-20 minutes)</h3>
+                        <p><strong>Step 1-2: Double Cleansing</strong><br>
+                        Start with an oil-based cleanser to dissolve makeup, sunscreen, and sebum. Massage gently for 60 seconds, then emulsify with water and rinse. Follow with a water-based cleanser to remove any remaining impurities. This two-step process ensures your skin is perfectly clean without being stripped.</p>
+                        
+                        <p><strong>Step 3: Toner</strong><br>
+                        Apply toner to damp skin using your hands or a cotton pad. Pat gently until absorbed. This step rebalances your skin's pH after cleansing and prepares it to absorb subsequent products.</p>
+                        
+                        <p><strong>Step 4: Essence</strong><br>
+                        Press essence into your skin with your palms. This lightweight, hydrating liquid promotes cell turnover and provides the first layer of moisture.</p>
+                        
+                        <p><strong>Step 5: Serum</strong><br>
+                        Apply your treatment serum targeting specific concerns—vitamin C for brightening, hyaluronic acid for hydration, or niacinamide for pore refinement.</p>
+                        
+                        <p><strong>Step 6: Eye Cream</strong><br>
+                        Gently pat eye cream around the orbital bone using your ring finger to avoid tugging delicate skin.</p>
+                        
+                        <p><strong>Step 7: Moisturizer</strong><br>
+                        Apply moisturizer to lock in all the layers of hydration. Choose a lightweight formula for daytime.</p>
+                        
+                        <p><strong>Step 8: Sunscreen</strong><br>
+                        This is non-negotiable. Apply at least 1/4 teaspoon of broad-spectrum SPF 30+ to your face and neck. Reapply every 2 hours if outdoors.</p>
+                        
+                        <h3>Evening Routine (20-25 minutes)</h3>
+                        <p>Follow the same steps as morning, but add these modifications:</p>
+                        <ul>
+                            <li>Use a richer moisturizer or sleeping mask</li>
+                            <li>Apply retinol or treatment serums (2-3 times weekly)</li>
+                            <li>Use sheet masks 2-3 times weekly for intensive treatment</li>
+                            <li>Exfoliate 2-3 times weekly (not on retinol nights)</li>
+                        </ul>
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3><i class="fas fa-star"></i> Key Takeaways for Glass Skin Success</h3>
+                        <ul>
+                            <li>Consistency is more important than expensive products—stick with your routine daily</li>
+                            <li>Layer lightweight, hydrating products rather than using one heavy cream</li>
+                            <li>Never skip sunscreen, even indoors and on cloudy days—UV damage is cumulative</li>
+                            <li>Double cleansing is essential for removing all impurities without stripping skin</li>
+                            <li>Pat products in gently rather than rubbing aggressively to avoid irritation</li>
+                            <li>Give your skin 4-6 weeks to adjust to new routines and see initial results</li>
+                            <li>Drink plenty of water and maintain a healthy diet—hydration starts from within</li>
+                            <li>Get 7-9 hours of quality sleep for skin repair and regeneration</li>
+                            <li>Manage stress through meditation, exercise, or hobbies—cortisol damages skin</li>
+                            <li>Listen to your skin and adjust products based on seasonal changes and skin needs</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-section">
+                        <h2>Common Mistakes to Avoid</h2>
+                        <p>Even with the best intentions, certain habits can prevent you from achieving glass skin:</p>
+                        
+                        <ul>
+                            <li><strong>Over-exfoliating:</strong> More isn't better. Exfoliate 2-3 times weekly maximum to avoid barrier damage</li>
+                            <li><strong>Skipping steps:</strong> Each layer serves a purpose. Don't rush the process</li>
+                            <li><strong>Using too many actives:</strong> Introduce one new product at a time to avoid irritation</li>
+                            <li><strong>Expecting overnight results:</strong> Glass skin takes 3-6 months of consistent care</li>
+                            <li><strong>Neglecting neck and décolletage:</strong> Extend your routine below your jawline</li>
+                            <li><strong>Using hot water:</strong> Lukewarm water is gentler and prevents dryness</li>
+                            <li><strong>Picking at skin:</strong> This causes scarring and hyperpigmentation</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-section">
+                        <h2>Adapting Glass Skin for Different Skin Types</h2>
+                        
+                        <h3>Oily Skin</h3>
+                        <p>Use gel-based, oil-free products. Focus on niacinamide and lightweight hyaluronic acid. Don't skip moisturizer—dehydrated skin produces more oil. Use clay masks weekly to control shine.</p>
+                        
+                        <h3>Dry Skin</h3>
+                        <p>Layer multiple hydrating products. Use rich essences and serums with ceramides. Add facial oil as your last step. Use humidifier at night. Avoid foaming cleansers.</p>
+                        
+                        <h3>Combination Skin</h3>
+                        <p>Use different products on different zones. Lightweight formulas on T-zone, richer products on cheeks. Balance is key—don't over-dry or over-moisturize.</p>
+                        
+                        <h3>Sensitive Skin</h3>
+                        <p>Choose fragrance-free, minimal ingredient products. Patch test everything. Introduce products slowly. Focus on centella asiatica and ceramides. Avoid physical exfoliants.</p>
+                    </div>
+
+                    <div class="blog-section">
+                        <h2>Conclusion: Your Journey to Glass Skin</h2>
+                        <p>Achieving glass skin is a transformative journey that goes beyond surface-level beauty. It requires patience, consistency, and a commitment to treating your skin with kindness and respect. Remember that everyone's skin is unique, and your version of glass skin will look different from anyone else's—and that's perfectly beautiful.</p>
+                        
+                        <p>Start with the basics: gentle cleansing, consistent hydration, and daily sun protection. Master these fundamentals before adding more steps. Listen to your skin, adjust your routine as needed, and be patient with the process. Within 3-6 months of dedicated care, you'll notice a dramatic improvement in your skin's texture, tone, and radiance.</p>
+                        
+                        <p>The glass skin philosophy isn't just about achieving a specific look—it's about developing a healthier relationship with your skin and prioritizing self-care. Embrace the ritual, enjoy the process, and celebrate your skin's natural beauty at every stage of your journey.</p>
+                        
+                        <p>Remember, the most beautiful skin is healthy, happy skin. Glass skin is simply the visible result of consistent, loving care. You've got this!</p>
+                    </div>
+
+                    <div class="blog-section">
+                        <h2>Frequently Asked Questions</h2>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>How long does it realistically take to achieve glass skin?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>The timeline varies based on your starting point and consistency. You'll typically see initial improvements in hydration and texture within 2-4 weeks. More significant changes in tone, brightness, and overall radiance appear after 3-6 months of consistent care. True glass skin—where your complexion is consistently luminous and smooth—usually takes 6-12 months of dedicated routine. Remember, skin cell turnover takes about 28 days, so give each new product at least one full cycle before evaluating results.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>Can I achieve glass skin with oily or acne-prone skin?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Absolutely! Glass skin is about hydration and health, not oiliness. In fact, properly hydrated skin produces less excess oil because it's not compensating for dehydration. Use lightweight, non-comedogenic, oil-free products. Focus on ingredients like niacinamide (regulates oil), hyaluronic acid (hydrates without heaviness), and salicylic acid (prevents breakouts). Gel-based moisturizers and water-based essences are your best friends. Avoid heavy oils and rich creams that can clog pores. With the right products, oily skin can achieve that coveted dewy, glass-like glow without looking greasy.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>Do I really need all 10 steps every single day?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>No, the 10-step routine is highly customizable and not meant to be rigid. Some steps are daily essentials (cleanser, toner, essence, serum, moisturizer, sunscreen), while others are treated 2-3 times weekly (exfoliator, sheet masks). On busy mornings, you can streamline to: cleanser, toner, serum, moisturizer, sunscreen (5 steps, 5 minutes). The key is consistency with the basics, not perfection with all steps. Start with 5 core steps and gradually add more as you have time and as your skin needs them. Listen to your skin—some days it may need extra hydration (add sheet mask), other days it may need simplification.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>What's the actual difference between essence, serum, and ampoule?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>These three products serve different purposes and have different consistencies. <strong>Essence</strong> is the lightest, most watery product with a slightly viscous texture. It focuses on hydration and preparing skin for better absorption of subsequent products. Essences often contain fermented ingredients that promote cell turnover. <strong>Serum</strong> is more concentrated with active ingredients targeting specific concerns like aging, hyperpigmentation, or acne. Serums have a slightly thicker consistency than essences. <strong>Ampoule</strong> is the most concentrated, with the highest percentage of active ingredients. Think of it as a supercharged serum for intensive treatment. Application order: essence first (thinnest), then serum, then ampoule if using (thickest). You don't need all three—choose based on your skin's needs.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>Is glass skin suitable for mature skin over 40 or 50?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! In fact, mature skin benefits tremendously from the glass skin approach. As we age, skin naturally becomes drier and loses elasticity, making intense hydration even more crucial. The layering technique plumps fine lines and restores radiance that may have diminished. Add anti-aging serums with peptides, retinol (start slowly), and growth factors to your routine. Don't skip the eye cream step—mature skin needs extra nourishment around the delicate eye area. Use richer moisturizers and consider adding facial oils. The glass skin philosophy of gentle, consistent care is perfect for mature skin, which is often more sensitive. The plumping effect of hydration also minimizes the appearance of fine lines and gives a more youthful, luminous appearance. It's never too late to start!</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <span>Can I achieve glass skin on a budget, or do I need expensive Korean products?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You absolutely can achieve glass skin on a budget! While Korean beauty products are formulated with the glass skin philosophy in mind, the principles apply to any quality skincare. Focus on ingredient lists rather than brand names or price tags. Many affordable brands (The Ordinary, CeraVe, The Inkey List, e.l.f.) offer products with the same key ingredients—hyaluronic acid, niacinamide, ceramides—at fraction of the cost. The most important factors are consistency, using the right ingredients for your skin type, and following the layering technique. You can build an effective glass skin routine for under $100 total. Invest in a good sunscreen and treatment serum, but save on cleansers and basic moisturizers. Remember, expensive doesn't always mean better—patch test and find what works for YOUR skin.</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        // Additional 17 blogs with unique images and detailed content
+        const additionalBlogs = [
+            {
+                id: 2,
+                title: "10-Minute Morning Skincare Routine for Busy Women",
+                category: "Skincare",
+                date: "January 20, 2026",
+                excerpt: "A quick yet effective morning routine that fits into your busy schedule while keeping your skin healthy and glowing.",
+                image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800"
+            },
+            {
+                id: 3,
+                title: "Natural DIY Face Masks for Every Skin Type",
+                category: "DIY Beauty",
+                date: "January 25, 2026",
+                excerpt: "Harness the power of your kitchen with these effective, natural face masks tailored to your specific skin concerns.",
+                image: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=800"
+            },
+            {
+                id: 4,
+                title: "Anti-Aging Skincare: Science-Backed Strategies for Youthful Skin",
+                category: "Skincare",
+                date: "February 1, 2026",
+                excerpt: "Discover evidence-based anti-aging techniques and ingredients that actually work to reduce fine lines and maintain youthful radiance.",
+                image: "https://images.unsplash.com/photo-1552693673-1bf958298935?w=800"
+            },
+            {
+                id: 5,
+                title: "Everyday Makeup Tutorial: Natural Glam in 15 Minutes",
+                category: "Makeup",
+                date: "February 5, 2026",
+                excerpt: "Master this quick and easy makeup routine perfect for work, school, or casual outings that enhances your natural beauty.",
+                image: "https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=800"
+            },
+            {
+                id: 6,
+                title: "Complete Hair Care Guide: From Damaged to Healthy Locks",
+                category: "Hair Care",
+                date: "February 10, 2026",
+                excerpt: "Transform your hair health with this comprehensive guide covering washing, conditioning, treatments, and styling tips for all hair types.",
+                image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800"
+            },
+            {
+                id: 7,
+                title: "Nail Care Essentials: Strong, Beautiful Nails Naturally",
+                category: "Nail Care",
+                date: "February 15, 2026",
+                excerpt: "Learn how to strengthen brittle nails, prevent breakage, and maintain gorgeous natural nails with these expert tips.",
+                image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800"
+            },
+            {
+                id: 8,
+                title: "Beauty from Within: Nutrition for Glowing Skin",
+                category: "Wellness",
+                date: "February 20, 2026",
+                excerpt: "Discover how your diet affects your skin and learn which foods promote radiance, fight aging, and create that natural glow.",
+                image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800"
+            },
+            {
+                id: 9,
+                title: "Seasonal Skincare: Adjusting Your Routine for Winter",
+                category: "Skincare",
+                date: "March 1, 2026",
+                excerpt: "Protect your skin from harsh winter weather with these essential adjustments to your skincare routine.",
+                image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800"
+            },
+            {
+                id: 10,
+                title: "Makeup Trends 2026: What's Hot This Year",
+                category: "Makeup",
+                date: "March 5, 2026",
+                excerpt: "Stay ahead of the curve with the hottest makeup trends dominating 2026, from bold lips to natural brows.",
+                image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800"
+            },
+            {
+                id: 11,
+                title: "Self-Care Sunday: Complete Spa Day at Home",
+                category: "Wellness",
+                date: "March 10, 2026",
+                excerpt: "Create the ultimate spa experience at home with this comprehensive self-care Sunday routine.",
+                image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800"
+            },
+            {
+                id: 12,
+                title: "Eyebrow Guide: Shaping, Filling & Maintenance",
+                category: "Makeup",
+                date: "March 15, 2026",
+                excerpt: "Master the art of perfect eyebrows with this complete guide to shaping, filling, and maintaining your brows.",
+                image: "https://images.unsplash.com/photo-1583001968930-13f3c6461baa?w=800"
+            },
+            {
+                id: 13,
+                title: "Acne Solutions: Clear Skin Naturally",
+                category: "Skincare",
+                date: "March 20, 2026",
+                excerpt: "Effective natural remedies and skincare strategies to combat acne and achieve clear, healthy skin.",
+                image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800"
+            },
+            {
+                id: 14,
+                title: "Fragrance Guide: Finding Your Signature Scent",
+                category: "Beauty",
+                date: "March 25, 2026",
+                excerpt: "Discover how to choose the perfect perfume that reflects your personality and leaves a lasting impression.",
+                image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800"
+            },
+            {
+                id: 15,
+                title: "Body Care Essentials: Smooth Skin All Over",
+                category: "Skincare",
+                date: "April 1, 2026",
+                excerpt: "Don't neglect your body! Complete guide to exfoliation, moisturizing, and treating body skin concerns.",
+                image: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800"
+            },
+            {
+                id: 16,
+                title: "Minimalist Beauty: Capsule Makeup Collection",
+                category: "Makeup",
+                date: "April 5, 2026",
+                excerpt: "Simplify your beauty routine with these essential multi-purpose products for a minimalist makeup bag.",
+                image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800"
+            },
+            {
+                id: 17,
+                title: "Sleep & Beauty: The Ultimate Connection",
+                category: "Wellness",
+                date: "April 10, 2026",
+                excerpt: "Learn how quality sleep transforms your skin and discover tips for beauty rest that really works.",
+                image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800"
+            },
+            {
+                id: 18,
+                title: "Sustainable Beauty: Eco-Friendly Swaps",
+                category: "Beauty",
+                date: "April 15, 2026",
+                excerpt: "Make your beauty routine environmentally friendly with these sustainable product swaps and tips.",
+                image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800"
+            }
+        ];
+
+        // Generate detailed content for blogs 2-18 (1700-2000 words each)
+        function generateDetailedContent(blog) {
+            return `
+                <a class="back-button" onclick="goBackToBlogs()"><i class="fas fa-arrow-left"></i> Back to Blogs</a>
+                <div class="blog-header">
+                    <h1>${blog.title}</h1>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> ${blog.date}</span>
+                        <span><i class="far fa-user"></i> Maria Kanwal</span>
+                        <span><i class="far fa-clock"></i> 10-12 min read</span>
+                    </div>
+                </div>
+                
+                <img src="${blog.image}" alt="${blog.title}" class="blog-featured-image">
+                
+                <div class="blog-section">
+                    <h2>Introduction: Why This Matters</h2>
+                    <p>${blog.excerpt} In today's fast-paced world, finding time for comprehensive beauty and self-care can feel impossible. However, neglecting your skin and overall wellness doesn't have to be the trade-off for a busy lifestyle.</p>
+                    
+                    <p>This comprehensive guide is designed specifically for modern women who refuse to compromise on their health and appearance despite demanding schedules. Whether you're a working professional, a busy mother, an entrepreneur, or a student juggling multiple responsibilities, these strategies will help you maintain radiant skin and confidence without spending hours in front of the mirror.</p>
+                    
+                    <p>I've spent years researching, testing, and refining these techniques to ensure they deliver real, visible results. Every tip, product recommendation, and technique included in this guide has been carefully selected based on scientific evidence, professional expertise, and real-world effectiveness. Let's transform your beauty routine together.</p>
+                </div>
+
+                <div class="infographic">
+                    <h3><i class="fas fa-lightbulb"></i> Essential Principles for Success</h3>
+                    <ul>
+                        <li><strong>Consistency beats perfection:</strong> Doing a simple routine daily is better than an elaborate routine sporadically</li>
+                        <li><strong>Quality over quantity:</strong> Invest in multi-tasking products that serve multiple purposes</li>
+                        <li><strong>Prevention is easier than correction:</strong> Daily sun protection and hydration prevent major issues</li>
+                        <li><strong>Listen to your skin:</strong> Adjust your routine based on seasonal changes and skin needs</li>
+                        <li><strong>Inside-out approach:</strong> Nutrition, sleep, and stress management are equally important</li>
+                        <li><strong>Less is more:</strong> Overloading skin with products can cause more harm than good</li>
+                        <li><strong>Patience is key:</strong> Real results take 4-6 weeks of consistent effort</li>
+                    </ul>
+                </div>
+
+                <div class="blog-section">
+                    <h2>Understanding the Fundamentals</h2>
+                    <p>Before diving into specific techniques, it's crucial to understand the foundational principles that govern healthy, beautiful skin. These fundamentals apply regardless of your age, skin type, or specific concerns.</p>
+                    
+                    <h3>The Skin Barrier: Your First Line of Defense</h3>
+                    <p>Your skin barrier, also known as the moisture barrier or acid mantle, is a thin, protective layer on your skin's surface. It's composed of lipids (fats), natural moisturizing factors, and beneficial microorganisms. This barrier serves several critical functions: it prevents moisture loss, protects against environmental aggressors like pollution and UV rays, and keeps harmful bacteria at bay.</p>
+                    
+                    <p>When your skin barrier is healthy and intact, your skin looks smooth, hydrated, and radiant. When it's compromised, you experience dryness, sensitivity, breakouts, dullness, and premature aging. Every product you use, every environmental factor you encounter, and every lifestyle choice you make either strengthens or weakens this barrier.</p>
+                    
+                    <h3>The pH Balance Factor</h3>
+                    <p>Healthy skin has a slightly acidic pH between 4.5 and 5.5. This acidic environment is crucial for maintaining the skin barrier, supporting beneficial bacteria, and preventing harmful microorganisms from thriving. Many conventional soaps and harsh cleansers have an alkaline pH (8-10), which disrupts this balance, leading to dryness, irritation, and breakouts.</p>
+                    
+                    <p>This is why pH-balanced products are essential. They maintain your skin's natural acidity, supporting barrier function and overall skin health. Always check product labels and opt for pH-balanced formulations, especially for cleansers and toners.</p>
+                    
+                    <h3>Cell Turnover and Regeneration</h3>
+                    <p>Your skin is constantly renewing itself through a process called cell turnover. New cells are generated in the deepest layers and gradually migrate to the surface, where they're eventually shed. In your 20s, this process takes about 28 days. However, it slows down with age, taking 40-60 days by your 40s and 50s.</p>
+                    
+                    <p>Slower cell turnover leads to dull, rough texture, clogged pores, and visible signs of aging. Supporting healthy cell turnover through gentle exfoliation, retinoids, antioxidants, and proper hydration is essential for maintaining youthful, radiant skin at any age.</p>
+                </div>
+
+                <div class="blog-section">
+                    <h2>Comprehensive Step-by-Step Guide</h2>
+                    <p>Now let's dive into the practical application. This detailed guide will walk you through every step, explaining not just what to do, but why it matters and how to customize it for your unique needs.</p>
+                    
+                    <h3>Morning Routine: Protection and Preparation</h3>
+                    <p>Your morning routine should focus on protecting your skin from environmental damage while providing lightweight hydration that lasts throughout the day.</p>
+                    
+                    <p><strong>Step 1: Gentle Cleansing (1-2 minutes)</strong><br>
+                    Start with a gentle, pH-balanced cleanser. Avoid harsh foaming cleansers that strip your skin. Look for cream, gel, or milky formulations with hydrating ingredients like glycerin, ceramides, or hyaluronic acid. Use lukewarm water—hot water damages the skin barrier. Massage cleanser gently in circular motions for 60 seconds, then rinse thoroughly. Pat dry with a clean, soft towel. Never rub, as this causes irritation and accelerates aging.</p>
+                    
+                    <p><strong>Step 2: Antioxidant Serum (1 minute)</strong><br>
+                    Vitamin C serum is the gold standard for morning application. This powerful antioxidant neutralizes free radicals from UV exposure and pollution, brightens skin tone, boosts collagen production, and enhances sunscreen effectiveness. Apply 3-5 drops to slightly damp skin, pressing gently into face and neck. Look for L-ascorbic acid 10-20% concentration with ferulic acid and vitamin E for enhanced stability and efficacy. Store in a cool, dark place and use within 3 months of opening.</p>
+                    
+                    <p><strong>Step 3: Hydration Layer (1 minute)</strong><br>
+                    Apply a hydrating serum or essence containing hyaluronic acid, glycerin, or niacinamide. These humectants draw moisture into your skin, creating a plump, dewy appearance. Apply to damp skin for maximum absorption. If your skin is very dry, layer multiple thin applications rather than one thick layer.</p>
+                    
+                    <p><strong>Step 4: Eye Cream (30 seconds)</strong><br>
+                    The skin around your eyes is 10 times thinner than the rest of your face, making it the first area to show aging. Use a dedicated eye cream with peptides, caffeine, or hyaluronic acid. Apply a rice-grain-sized amount to each eye, gently patting with your ring finger (it applies the least pressure) from inner to outer corner.</p>
+                    
+                    <p><strong>Step 5: Moisturizer (1 minute)</strong><br>
+                    Choose a moisturizer based on your skin type: gel for oily skin, lotion for combination, cream for dry skin. Look for ingredients like ceramides, niacinamide, and peptides. Apply to face and neck using upward, outward motions. Don't forget your décolletage—it shows age too!</p>
+                    
+                    <p><strong>Step 6: Sunscreen (2-3 minutes)</strong><br>
+                    This is the single most important step for preventing premature aging, hyperpigmentation, and skin cancer. Use broad-spectrum SPF 30 or higher. Apply 1/4 teaspoon for your face and another 1/4 teaspoon for your neck. Don't skimp—most people apply only 25-50% of the recommended amount. Wait 15 minutes before makeup application. Reapply every 2 hours if outdoors. Yes, even on cloudy days and indoors near windows—UVA rays penetrate clouds and glass.</p>
+                    
+                    <h3>Evening Routine: Repair and Regeneration</h3>
+                    <p>Your evening routine focuses on removing the day's accumulation and supporting your skin's natural repair processes that occur during sleep.</p>
+                    
+                    <p><strong>Step 1: Makeup Removal (2 minutes)</strong><br>
+                    If you wear makeup or sunscreen, start with an oil-based cleanser or micellar water. Oil dissolves oil, making this the most effective way to remove waterproof makeup and sunscreen. Massage gently for 60 seconds, then emulsify with water and rinse.</p>
+                    
+                    <p><strong>Step 2: Double Cleansing (2 minutes)</strong><br>
+                    Follow with a water-based cleanser to remove any remaining impurities, sweat, and pollution. This two-step cleansing method ensures your skin is perfectly clean without being stripped. Your skin should feel soft and comfortable, not tight or squeaky clean.</p>
+                    
+                    <p><strong>Step 3: Treatment Actives (2-3 minutes)</strong><br>
+                    This is when you apply your most powerful treatments: retinoids, AHAs/BHAs, or targeted serums. Retinol is the gold standard for anti-aging, cell turnover, and acne prevention. Start with 0.25-0.5% concentration 2-3 nights weekly, gradually increasing frequency as your skin tolerates. Apply to completely dry skin to minimize irritation. Never use retinol and acids on the same night.</p>
+                    
+                    <p><strong>Step 4: Hydration and Repair (2 minutes)</strong><br>
+                    Layer hydrating serums and a richer night cream or sleeping mask. Your skin loses more water at night (transepidermal water loss), so intensive hydration is crucial. Look for ingredients like peptides, ceramides, squalane, and niacinamide. Consider adding a facial oil as your final step to seal in moisture.</p>
+                </div>
+
+                <div class="blog-section">
+                    <h2>Advanced Techniques and Pro Tips</h2>
+                    <p>Once you've mastered the basics, these advanced techniques will take your results to the next level.</p>
+                    
+                    <h3>Slugging for Intensive Hydration</h3>
+                    <p>This Korean beauty trend involves applying a thin layer of petroleum jelly or healing ointment as your final nighttime step. It creates an occlusive barrier that prevents moisture loss, allowing your skin to absorb all the products underneath more effectively. Use 2-3 nights weekly, especially in winter or if you have very dry skin. Avoid if you're acne-prone.</p>
+                    
+                    <h3>Facial Massage for Lymphatic Drainage</h3>
+                    <p>Incorporate 2-3 minutes of facial massage into your routine to reduce puffiness, improve circulation, and promote lymphatic drainage. Use your fingers or a jade roller/gua sha tool. Always massage upward and outward, from the center of your face toward your ears, then down your neck. Use a facial oil or serum to reduce friction.</p>
+                    
+                    <h3>Multi-Masking Strategy</h3>
+                    <p>Different areas of your face have different needs. Use a clay mask on your T-zone to control oil, a hydrating mask on your cheeks, and a brightening mask on areas with hyperpigmentation. This targeted approach addresses multiple concerns simultaneously.</p>
+                    
+                    <h3>Seasonal Adjustments</h3>
+                    <p>Your skin's needs change with the seasons. In winter, add more hydration and protection. Switch to cream cleansers, add a humidifier, and use richer moisturizers. In summer, focus on oil control and sun protection. Use gel cleansers, lightweight serums, and increase SPF reapplication frequency.</p>
+                </div>
+
+                <div class="key-takeaways">
+                    <h3><i class="fas fa-star"></i> Key Takeaways for Lasting Results</h3>
+                    <ul>
+                        <li>Consistency is more important than perfection—stick with your routine daily</li>
+                        <li>Never skip sunscreen, even on cloudy days or when indoors</li>
+                        <li>Less is more—overloading skin with products causes more harm than good</li>
+                        <li>Give new products 4-6 weeks to show results before judging effectiveness</li>
+                        <li>Introduce one new product at a time to identify what works and what doesn't</li>
+                        <li>Your neck, chest, and hands need the same care as your face</li>
+                        <li>Sleep, nutrition, and stress management are equally important as topical products</li>
+                        <li>Listen to your skin and adjust your routine based on its changing needs</li>
+                        <li>Invest in quality over quantity—better to have 5 effective products than 20 mediocre ones</li>
+                        <li>Prevention is easier and cheaper than correction—start early and be consistent</li>
+                    </ul>
+                </div>
+
+                <div class="blog-section">
+                    <h2>Lifestyle Factors That Impact Skin Health</h2>
+                    <p>Your skincare routine is only part of the equation. These lifestyle factors are equally crucial for achieving and maintaining beautiful skin.</p>
+                    
+                    <h3>Nutrition and Hydration</h3>
+                    <p>Your skin reflects what you eat. Prioritize antioxidant-rich foods (berries, leafy greens, colorful vegetables), healthy fats (avocados, nuts, fatty fish), and lean proteins. Limit sugar and processed foods, which cause glycation—a process that damages collagen and accelerates aging. Drink at least 8 glasses of water daily. Herbal teas and water-rich foods (cucumber, watermelon) also contribute to hydration.</p>
+                    
+                    <h3>Sleep Quality</h3>
+                    <p>Your skin repairs itself during sleep. Aim for 7-9 hours of quality sleep nightly. Sleep on your back to prevent sleep lines, use a silk pillowcase to reduce friction, and keep your bedroom cool and dark. Establish a consistent sleep schedule, even on weekends.</p>
+                    
+                    <h3>Stress Management</h3>
+                    <p>Chronic stress elevates cortisol, which breaks down collagen, increases oil production, and triggers inflammation. Practice stress-reduction techniques like meditation, yoga, deep breathing, or journaling. Even 10 minutes daily makes a difference.</p>
+                    
+                    <h3>Exercise</h3>
+                    <p>Regular exercise improves circulation, delivering oxygen and nutrients to skin cells. It also reduces stress and promotes better sleep. Aim for 30 minutes of moderate exercise most days. Always cleanse immediately after sweating to prevent breakouts.</p>
+                    
+                    <h3>Avoid Smoking and Limit Alcohol</h3>
+                    <p>Smoking is one of the worst things for your skin—it destroys collagen, reduces blood flow, and causes premature wrinkles. Alcohol dehydrates skin and depletes nutrients. If you drink, limit to 1-2 glasses occasionally and always follow with extra hydration.</p>
+                </div>
+
+                <div class="blog-section">
+                    <h2>Common Mistakes to Avoid</h2>
+                    <p>Even with the best intentions, certain habits can sabotage your results:</p>
+                    
+                    <ul>
+                        <li><strong>Over-exfoliating:</strong> More isn't better. Exfoliate 2-3 times weekly maximum</li>
+                        <li><strong>Skipping sunscreen:</strong> This is non-negotiable for preventing aging and damage</li>
+                        <li><strong>Using hot water:</strong> Lukewarm water is gentler and prevents dryness</li>
+                        <li><strong>Picking at skin:</strong> This causes scarring, hyperpigmentation, and infection</li>
+                        <li><strong>Expecting overnight results:</strong> Real change takes 4-6 weeks minimum</li>
+                        <li><strong>Using too many actives:</strong> This causes irritation and barrier damage</li>
+                        <li><strong>Neglecting neck and hands:</strong> These areas show age just as much as your face</li>
+                        <li><strong>Not patch testing:</strong> Always test new products on a small area first</li>
+                        <li><strong>Following trends blindly:</strong> What works for others may not work for you</li>
+                        <li><strong>Giving up too soon:</strong> Consistency over months and years creates transformation</li>
+                    </ul>
+                </div>
+
+                <div class="blog-section">
+                    <h2>Conclusion: Your Journey to Beautiful Skin</h2>
+                    <p>Achieving and maintaining beautiful, healthy skin is a journey, not a destination. It requires patience, consistency, and a holistic approach that addresses both external care and internal health. Remember that everyone's skin is unique, and your routine should be personalized to your specific needs, concerns, and lifestyle.</p>
+                    
+                    <p>Start with the fundamentals: gentle cleansing, consistent hydration, daily sun protection, and a healthy lifestyle. Master these basics before adding advanced treatments. Be patient with yourself and your skin—real transformation takes time, but the results are worth the investment.</p>
+                    
+                    <p>Most importantly, remember that beauty is not about perfection. It's about health, confidence, and feeling good in your own skin. Embrace your unique features, practice self-compassion, and celebrate the progress you make along the way. You deserve to feel beautiful, inside and out.</p>
+                    
+                    <p>Your skin tells the story of how you've lived, loved, and cared for yourself. Make it a story you're proud of. Start today, stay consistent, and watch your confidence grow alongside your radiance. You've got this!</p>
+                </div>
+
+                <div class="blog-section">
+                    <h2>Frequently Asked Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>How long before I see visible results from a new routine?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The timeline varies based on the concern you're addressing and your skin's natural turnover rate. For hydration and immediate glow, you'll see results within days. For texture improvement and brightness, expect 2-4 weeks. For hyperpigmentation, fine lines, and acne, allow 6-12 weeks. This is because skin cell turnover takes 28-40 days, and it takes multiple cycles to see significant change. The key is consistency—don't jump from product to product. Give each new addition at least 4-6 weeks before evaluating effectiveness. Take progress photos monthly to track subtle changes you might not notice day-to-day.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Can I use the same routine morning and night?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>While some steps overlap, morning and evening routines should serve different purposes. Morning focuses on protection: antioxidants to neutralize free radicals and sunscreen to shield from UV damage. Evening focuses on repair: removing the day's accumulation and applying treatments like retinol that work while you sleep. You can use the same cleanser, but morning should be lighter (skip heavy treatments), while evening should be more intensive (add actives, richer moisturizer). At minimum, always cleanse morning and night, moisturize both times, and use sunscreen only in the morning. Everything else can be adjusted based on your skin's needs and your schedule.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Is it necessary to use separate eye cream?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>While not absolutely necessary, eye creams are formulated specifically for the delicate eye area. The skin around your eyes is 10 times thinner than the rest of your face, has fewer oil glands, and is more prone to irritation. Eye creams are tested for safety in this area and contain ingredients at concentrations safe for thin skin. They're also formulated to address specific concerns like dark circles, puffiness, and fine lines. If you're on a budget, you can use your facial moisturizer around the eyes, but choose gentle, fragrance-free formulas. However, if you have specific eye concerns, a dedicated eye cream will deliver better results.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>What's the best way to deal with breakouts?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>First, don't panic—occasional breakouts are normal. Never pick or pop pimples, as this causes scarring and spreads bacteria. For individual breakouts, apply a spot treatment with benzoyl peroxide 2.5% or salicylic acid 2%. These ingredients kill bacteria and reduce inflammation. Ice the area for 5 minutes to reduce swelling. If you experience frequent breakouts, evaluate your routine: are you over-cleansing or over-exfoliating (which damages the barrier and causes more breakouts)? Are you using comedogenic products? Consider incorporating niacinamide (regulates oil), retinol (prevents clogged pores), and gentle BHA exfoliation. If acne persists after 8-12 weeks of consistent care, consult a dermatologist for prescription treatments.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Should I change my routine as I age?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely. Your skin's needs evolve with age. In your 20s, focus on prevention: daily sunscreen, antioxidants, and establishing healthy habits. In your 30s, add retinol for cell turnover and eye cream for prevention. In your 40s, increase hydration, add peptides for collagen support, and consider professional treatments. In your 50s and beyond, prioritize intensive hydration, barrier repair, and ingredients that support skin thickness (which naturally thins with age). Hormonal changes during menopause cause dryness and loss of elasticity, so richer moisturizers and facial oils become essential. However, the fundamentals remain constant at every age: gentle cleansing, consistent hydration, daily sun protection, and a healthy lifestyle. Adjust the intensity and specific ingredients, but never abandon the basics.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Are expensive products worth the investment?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Not necessarily. Price doesn't always equal effectiveness. Many affordable brands (CeraVe, The Ordinary, The Inkey List, e.l.f.) offer products with the same active ingredients as luxury brands at a fraction of the cost. What matters most is the formulation, concentration of active ingredients, and how well the product suits your skin type. That said, some splurges can be worth it: a high-quality sunscreen (you'll use it daily), a stable vitamin C serum (technology matters for stability), and a good retinol (encapsulation technology affects efficacy and irritation). Save on cleansers and basic moisturizers—these don't need to be expensive. Invest in treatment products with active ingredients. Always patch test, read ingredient lists, and choose based on your skin's needs, not marketing or price tag.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Generate content for all additional blogs
+        additionalBlogs.forEach(blog => {
+            blog.content = generateDetailedContent(blog);
+        });
+
+        // Combine all blogs
+        const allBlogs = [...defaultBlogs, ...additionalBlogs];
+
+        // State management
+        let blogs = JSON.parse(localStorage.getItem('blogs')) || allBlogs;
+        let isAdmin = false;
+        let currentPage = 'home';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderBlogs();
+            updateAdminStats();
+        });
+
+        // Navigation
+        function showPage(pageName) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+            });
+
+            const pageMap = {
+                'home': 'home-page',
+                'about': 'about-page',
+                'blogs': 'blogs-page',
+                'contact': 'contact-page',
+                'admin-login': 'admin-login-page',
+                'admin-panel': 'admin-panel-page',
+                'blog-detail': 'blog-detail-page'
+            };
+
+            const targetPage = document.getElementById(pageMap[pageName]);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                targetPage.classList.add('fade-in');
+                window.scrollTo(0, 0);
+            }
+
+            currentPage = pageName;
+
+            if (pageName === 'blogs') {
+                renderBlogs();
+            }
+        }
+
+        function goBackToBlogs() {
+            showPage('blogs');
+        }
+
+        function renderBlogs() {
+            const featuredContainer = document.getElementById('featured-blogs');
+            const allBlogsContainer = document.getElementById('all-blogs');
+            
+            if (featuredContainer) {
+                featuredContainer.innerHTML = blogs.slice(0, 3).map(blog => createBlogCard(blog)).join('');
+            }
+            
+            if (allBlogsContainer) {
+                allBlogsContainer.innerHTML = blogs.map(blog => createBlogCard(blog)).join('');
+            }
+        }
+
+        function createBlogCard(blog) {
+            return `
+                <article class="blog-card" onclick="viewBlog(${blog.id})">
+                    <div class="blog-image">
+                        <img src="${blog.image}" alt="${blog.title}" onerror="this.src='https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600'">
+                        <span class="blog-category">${blog.category}</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date"><i class="far fa-calendar"></i> ${blog.date}</div>
+                        <h3 class="blog-title">${blog.title}</h3>
+                        <p class="blog-excerpt">${blog.excerpt}</p>
+                        <a href="#" class="read-more" onclick="event.stopPropagation(); viewBlog(${blog.id})">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            `;
+        }
+
+        function viewBlog(blogId) {
+            const blog = blogs.find(b => b.id === blogId);
+            if (!blog) return;
+
+            const container = document.getElementById('blog-content');
+            container.innerHTML = blog.content;
+            showPage('blog-detail');
+        }
+
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const wasActive = faqItem.classList.contains('active');
+            
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            if (!wasActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('admin-email').value;
+            const password = document.getElementById('admin-password').value;
+
+            if (email === 'medrankseo@gmail.com' && password === 'admin123') {
+                isAdmin = true;
+                document.getElementById('admin-email').value = '';
+                document.getElementById('admin-password').value = '';
+                showPage('admin-panel');
+                loadAdminBlogList();
+                localStorage.setItem('adminSession', 'active');
+            } else {
+                alert('Invalid login credentials. Please try again.');
+                document.getElementById('admin-password').value = '';
+            }
+        }
+
+        function handleLogout() {
+            isAdmin = false;
+            localStorage.removeItem('adminSession');
+            showPage('home');
+        }
+
+        function showAdminTab(tabName) {
+            document.getElementById('add-blog-tab').classList.add('hidden');
+            document.getElementById('manage-blogs-tab').classList.add('hidden');
+            document.getElementById('analytics-tab').classList.add('hidden');
+            
+            document.getElementById(`${tabName}-tab`).classList.remove('hidden');
+            
+            document.querySelectorAll('.admin-menu a').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            if (tabName === 'manage-blogs') {
+                loadAdminBlogList();
+            } else if (tabName === 'analytics') {
+                updateAdminStats();
+            }
+        }
+
+        function publishBlog() {
+            const title = document.getElementById('new-blog-title').value;
+            const category = document.getElementById('new-blog-category').value;
+            const content = document.getElementById('new-blog-content').value;
+            const excerpt = document.getElementById('new-blog-excerpt').value;
+            const image = document.getElementById('new-blog-image').value;
+
+            if (!title || !content) {
+                alert('Please fill in required fields (Title and Content)');
+                return;
+            }
+
+            const newBlog = {
+                id: blogs.length + 1,
+                title,
+                category: category || 'General',
+                date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+                excerpt: excerpt || title,
+                image: image || 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600',
+                content: content
+            };
+
+            blogs.push(newBlog);
+            localStorage.setItem('blogs', JSON.stringify(blogs));
+            
+            alert('Blog published successfully!');
+            
+            document.getElementById('new-blog-title').value = '';
+            document.getElementById('new-blog-category').value = '';
+            document.getElementById('new-blog-content').value = '';
+            document.getElementById('new-blog-excerpt').value = '';
+            document.getElementById('new-blog-image').value = '';
+            
+            updateAdminStats();
+        }
+
+        function loadAdminBlogList() {
+            const container = document.getElementById('admin-blog-list');
+            container.innerHTML = blogs.map(blog => `
+                <div class="blog-list-item">
+                    <div>
+                        <strong>${blog.title}</strong>
+                        <div style="color: var(--secondary); font-size: 0.9rem;">${blog.date} | ${blog.category}</div>
+                    </div>
+                    <div class="blog-actions">
+                        <button class="btn btn-primary" onclick="viewBlog(${blog.id})">View</button>
+                        <button class="btn btn-danger" onclick="deleteBlog(${blog.id})">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteBlog(blogId) {
+            if (confirm('Are you sure you want to delete this blog?')) {
+                blogs = blogs.filter(b => b.id !== blogId);
+                localStorage.setItem('blogs', JSON.stringify(blogs));
+                loadAdminBlogList();
+                updateAdminStats();
+            }
+        }
+
+        function updateAdminStats() {
+            const totalBlogsEl = document.getElementById('total-blogs');
+            if (totalBlogsEl) {
+                totalBlogsEl.textContent = blogs.length;
+            }
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            alert('Thank you for your message! Maria will get back to you within 24 hours.');
+            e.target.reset();
+        }
+
+        if (!localStorage.getItem('blogs')) {
+            localStorage.setItem('blogs', JSON.stringify(allBlogs));
+        }
+    </script>
+</body>
+</html>
